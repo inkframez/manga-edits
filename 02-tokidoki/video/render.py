@@ -27,7 +27,7 @@ BM = json.load(open(os.path.join(HERE, 'beatmap.json')))
 DUR = math.floor(BM['duration'] * FPS) / FPS
 N = int(round(DUR * FPS))
 BEATS = np.array(BM['beats'])
-FD = 'C:/Windows/Fonts/'
+FD = 'C:/Windows/Fonts/' if os.name == 'nt' else os.path.join(os.path.dirname(ROOT), 'fonts') + '/'   # tools/setup_fonts.py
 cv2.setNumThreads(1)
 
 # ---------------------------------------------------------------- easing / time
