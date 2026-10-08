@@ -17,7 +17,7 @@ SONG = os.path.join(ROOT, '01-tdoh-bg-song.mp3')
 OUT = os.path.join(ROOT, 'three-days-of-happiness.mp4')
 W, H, FPS, N = 1920, 1080, 30, 1800
 SONG_START = 189.5
-FD = 'C:/Windows/Fonts/'
+FD = 'C:/Windows/Fonts/' if os.name == 'nt' else os.path.join(os.path.dirname(ROOT), 'fonts') + '/'   # tools/setup_fonts.py
 cv2.setNumThreads(1)
 
 # ---------------------------------------------------------------- easing

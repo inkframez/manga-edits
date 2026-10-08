@@ -20,7 +20,7 @@ OUT = os.path.join(ROOT, 'three-days-of-happiness-full.mp4')
 W, H, FPS = 1920, 1080, 30
 DUR = 249.5
 N = int(DUR * FPS)
-FD = 'C:/Windows/Fonts/'
+FD = 'C:/Windows/Fonts/' if os.name == 'nt' else os.path.join(os.path.dirname(ROOT), 'fonts') + '/'   # tools/setup_fonts.py
 cv2.setNumThreads(1)
 
 # ---------------------------------------------------------------- easing

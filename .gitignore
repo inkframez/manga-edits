@@ -18,3 +18,6 @@ __pycache__/
 
 # GrabCut test cut-outs
 02-tokidoki/cutouts/try_*.png
+
+# OFL stand-ins for the Windows fonts, fetched by tools/setup_fonts.py
+fonts/
