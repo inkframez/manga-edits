@@ -1,0 +1,20 @@
+# full-length renders are too big for GitHub (125 MB - 725 MB); the 20 s Shorts (< 20 MB) are kept
+*.mp4
+!*short*.mp4
+*.m4a
+_video*.mp4
+_audio*
+
+# other people's reference MMVs - not ours to publish, and large
+video-samples-references/
+
+# generated review frames / scratch
+**/video/stills*/
+**/video/check/
+**/video/_grid/
+**/video/render*_log.txt
+__pycache__/
+*.pyc
+
+# GrabCut test cut-outs
+02-tokidoki/cutouts/try_*.png

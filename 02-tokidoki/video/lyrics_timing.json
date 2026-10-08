@@ -1,0 +1,236 @@
+{
+ "note": "ESTIMATED from energy sections + centre-channel vocal detection (no transcription); lines snapped to bars. Instrumental 0-19.1 (intro), 131.5-150.1 (synth/guitar), 168.7-175.7 (build), 203.5-207.9 (peak).",
+ "lines": [
+  {
+   "section": "verse1",
+   "start": 19.1,
+   "end": 24.88,
+   "jp": "数えられた 鼓動のひとつ",
+   "en": "One of my counted heartbeats"
+  },
+  {
+   "section": "verse1",
+   "start": 24.88,
+   "end": 28.98,
+   "jp": "そっと胸に 手をあてた",
+   "en": "I gently placed a hand on my chest"
+  },
+  {
+   "section": "verse1",
+   "start": 28.98,
+   "end": 33.6,
+   "jp": "静かに生きる それが正しいと",
+   "en": "Living quietly, that's what's right"
+  },
+  {
+   "section": "verse1",
+   "start": 33.6,
+   "end": 37.3,
+   "jp": "ずっと自分に 言い聞かせた",
+   "en": "I kept telling myself"
+  },
+  {
+   "section": "pre1",
+   "start": 39.06,
+   "end": 43.88,
+   "jp": "そこへ君が 扉を開けて",
+   "en": "Then you opened the door"
+  },
+  {
+   "section": "pre1",
+   "start": 43.88,
+   "end": 48.6,
+   "jp": "止まった時間が 動き出した",
+   "en": "and stopped time began to move"
+  },
+  {
+   "section": "chorus1",
+   "start": 49.2,
+   "end": 53.94,
+   "jp": "ドキドキして いいんだよ",
+   "en": "It's okay for your heart to race"
+  },
+  {
+   "section": "chorus1",
+   "start": 53.94,
+   "end": 58.68,
+   "jp": "私の胸は 君の色",
+   "en": "My heart is your colour"
+  },
+  {
+   "section": "chorus1",
+   "start": 58.68,
+   "end": 63.39,
+   "jp": "一秒ごとに 光が増える",
+   "en": "With every second, the light grows"
+  },
+  {
+   "section": "chorus1",
+   "start": 63.39,
+   "end": 68.13,
+   "jp": "ときどき 痛くて ときどき 嬉しい",
+   "en": "Sometimes it hurts, sometimes I'm happy"
+  },
+  {
+   "section": "chorus1",
+   "start": 68.13,
+   "end": 74.4,
+   "jp": "この空の下 もっと走りたい",
+   "en": "Under this sky, I want to run further"
+  },
+  {
+   "section": "verse2",
+   "start": 77.94,
+   "end": 82.58,
+   "jp": "手をつないだら 速くなる音",
+   "en": "When we hold hands, the sound speeds up"
+  },
+  {
+   "section": "verse2",
+   "start": 82.58,
+   "end": 86.98,
+   "jp": "怖くないよと 君が笑う",
+   "en": "\"Don't be scared,\" you laugh"
+  },
+  {
+   "section": "verse2",
+   "start": 86.98,
+   "end": 90.4,
+   "jp": "知らなかった 世界の青さ",
+   "en": "I never knew how blue the world was"
+  },
+  {
+   "section": "verse2",
+   "start": 90.4,
+   "end": 95.3,
+   "jp": "知らなかった 私の声",
+   "en": "I never knew my own voice"
+  },
+  {
+   "section": "pre2",
+   "start": 96.39,
+   "end": 101.08,
+   "jp": "明日の数を 忘れるくらい",
+   "en": "So much that I forget to count tomorrows"
+  },
+  {
+   "section": "pre2",
+   "start": 101.08,
+   "end": 105.8,
+   "jp": "今日が眩しくて 泣きそうだ",
+   "en": "today is so bright I could cry"
+  },
+  {
+   "section": "chorus2",
+   "start": 108.09,
+   "end": 112.76,
+   "jp": "ドキドキして いいんだよ",
+   "en": "It's okay for your heart to race"
+  },
+  {
+   "section": "chorus2",
+   "start": 112.76,
+   "end": 117.54,
+   "jp": "私の胸は 君の色",
+   "en": "My heart is your colour"
+  },
+  {
+   "section": "chorus2",
+   "start": 117.54,
+   "end": 122.18,
+   "jp": "一秒ごとに 光が増える",
+   "en": "With every second, the light grows"
+  },
+  {
+   "section": "chorus2",
+   "start": 122.18,
+   "end": 126.85,
+   "jp": "ときどき 痛くて ときどき 嬉しい",
+   "en": "Sometimes it hurts, sometimes I'm happy"
+  },
+  {
+   "section": "chorus2",
+   "start": 126.85,
+   "end": 131.5,
+   "jp": "この空の下 もっと走りたい",
+   "en": "Under this sky, I want to run further"
+  },
+  {
+   "section": "bridge",
+   "start": 150.12,
+   "end": 154.81,
+   "jp": "たとえ鼓動が 尽きる日が来ても",
+   "en": "Even if the day comes my heartbeats run out"
+  },
+  {
+   "section": "bridge",
+   "start": 154.81,
+   "end": 159.47,
+   "jp": "君がくれた 夏は消えない",
+   "en": "the summer you gave me won't disappear"
+  },
+  {
+   "section": "bridge",
+   "start": 159.47,
+   "end": 164.12,
+   "jp": "ひとつ ひとつ 刻んだ想い",
+   "en": "feelings carved in, one by one"
+  },
+  {
+   "section": "bridge",
+   "start": 164.12,
+   "end": 168.7,
+   "jp": "空に溶けても 続いてく",
+   "en": "will go on, even melting into the sky"
+  },
+  {
+   "section": "final",
+   "start": 175.73,
+   "end": 180.37,
+   "jp": "ドキドキして いいんだよ",
+   "en": "It's okay for your heart to race"
+  },
+  {
+   "section": "final",
+   "start": 180.37,
+   "end": 184.97,
+   "jp": "私の胸は 君の色",
+   "en": "My heart is your colour"
+  },
+  {
+   "section": "final",
+   "start": 184.97,
+   "end": 189.59,
+   "jp": "一秒ごとに 光が増える",
+   "en": "With every second, the light grows"
+  },
+  {
+   "section": "final",
+   "start": 189.59,
+   "end": 194.24,
+   "jp": "ときどき 痛くて ときどき 嬉しい",
+   "en": "Sometimes it hurts, sometimes I'm happy"
+  },
+  {
+   "section": "final",
+   "start": 194.24,
+   "end": 203.5,
+   "jp": "ありがとう 恋をさせてくれて",
+   "en": "Thank you for letting me fall in love"
+  },
+  {
+   "section": "outro",
+   "start": 207.9,
+   "end": 211.68,
+   "jp": "ドキ…",
+   "en": "doki..."
+  },
+  {
+   "section": "outro",
+   "start": 211.68,
+   "end": 214.0,
+   "jp": "ドキ…",
+   "en": "doki..."
+  }
+ ]
+}
