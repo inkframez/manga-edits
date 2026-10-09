@@ -21,3 +21,6 @@ __pycache__/
 
 # OFL stand-ins for the Windows fonts, fetched by tools/setup_fonts.py
 fonts/
+
+# layout grids used while picking panel crops
+**/video/_grid*.jpg
