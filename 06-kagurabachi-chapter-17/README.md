@@ -63,7 +63,44 @@ The delivery mix targets -14 LUFS and -1.2 dBTP before AAC encoding.
 - The supplied chapter 18 panels provide the aftermath and confirmation that the
   sword broke; the closing footer identifies the chapter 18 aftermath.
 
-## Re-render
+## v2 — "Zero Distance" (rebuild)
+
+`kagurabachi-short-v2.mp4` is a ground-up redesign of the edit above: 33.5 s, 1080 × 1920, 30 fps, H.264 + AAC,
+with a new original score (`video/score_v2.wav`, 160 BPM, D miyako-bushi: shamisen plucks, a ticking clock that
+turns into the hi-hat, reese bass, taiko, a d&b break and sword / lightning / impact sound design).
+[`LESSON.md`](LESSON.md) explains what was wrong with v1 and the rules v2 follows.
+
+- **Full-bleed art.** Tall panels fill the screen under a moving camera; wide panels run edge to edge as bands
+  on ink or crimson fields. No permanent HUD rails or footers.
+- **One accent colour.** Paper, ink and Kagurabachi crimson; crimson means time, energy or blood.
+- **Type that belongs to the page.** Condensed type is printed under the ink (the linework passes over it),
+  wiped on the beat, cut in half when Cloud Gouger breaks. The countdown uses the manga's seven-segment
+  digits: `12:00` assembles in the cold open, flies into the corner and keeps the story's clock (12:00 → 11:52 →
+  09:04 → 07:68 → 06:00 / 03:00 → 01:47 → 00:89 → 00:00).
+- **Motion.** Beat-locked cuts with expo-out cameras, slash / ink / push / zoom-through transitions, focus lines,
+  lightning, sub-frame motion blur, a crimson flood for Nishiki's release, 0.75 s of near-silence before the
+  strike, then white / inverted impact frames, shake and a chromatic split.
+
+| File | Purpose |
+|---|---|
+| `video/timeline_v2.py` | Beats, cuts, hits and story-clock anchors shared by score and picture |
+| `video/music_v2.py` | Generates `video/score_v2.wav` |
+| `video/render_v2.py` | Renders stills, a contact sheet or the final MP4 |
+| `cover_v2.jpg` | Thumbnail frame |
+
+```bash
+cd video
+python music_v2.py
+python render_v2.py stills 1.2,13.8,21.5   # PNGs in video/stills_v2/
+python render_v2.py sheet 1                # contact sheet, a frame per second
+python render_v2.py video                  # ../kagurabachi-short-v2.mp4 (about 2 min on 4 cores)
+```
+
+On Linux / macOS the v2 renderer uses the repo's `fonts/` folder (`python tools/setup_fonts.py`), where Anton and
+Barlow Condensed stand in for Impact and Bahnschrift. The final mix is normalised to −14 LUFS / −1.5 dBTP with
+two-pass `loudnorm` during encoding.
+
+## Re-render (v1)
 
 Install the repository's root `requirements.txt` in a working Python environment.
 The renderer uses Windows Impact, Bahnschrift, Consolas, and Yu Gothic fonts.
