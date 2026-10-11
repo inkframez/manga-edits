@@ -1,0 +1,122 @@
+{
+  "title": "Sakamoto Days",
+  "creator": "Yuto Suzuki",
+  "fight": "Shishiba vs. Yotsumura",
+  "chapter_title": "Lightning Strikes",
+  "accessed": "2026-10-12",
+  "source_reader": "https://mangafire.to/title/8037o-sakamoto-dayss/chapter/9024120",
+  "numbering_note": "Numbers are image positions in this MangaFire reader, not printed page numbers. Wide images may contain a two-page spread.",
+  "asset_state": "Unmodified original JPEGs downloaded through the browser",
+  "assets": [
+    {
+      "file": "panels/ch100_004.jpg",
+      "chapter": 100,
+      "reader_image_number": 4,
+      "beat": "Opening weapon exchange",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 627554,
+      "sha256": "af4141dc60f501bf0e1dc94dc1056007a96d06a79fe88dcbba1c3f871dc0576a",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b34e5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_006.jpg",
+      "chapter": 100,
+      "reader_image_number": 6,
+      "beat": "Descent through the building",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 773871,
+      "sha256": "c4dc099517058ea906d93134622ad2427ec79e966537b03e1f25fa6c61449d89",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b34c5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_007.jpg",
+      "chapter": 100,
+      "reader_image_number": 7,
+      "beat": "Rapid weapon exchange",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 550684,
+      "sha256": "6e69bef996ebc7c7802c2a154a79f43faea7b17912347eb098fe49b8d17bce45",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b34d5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_008.jpg",
+      "chapter": 100,
+      "reader_image_number": 8,
+      "beat": "Entrance to the dark passage",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 671927,
+      "sha256": "a44d254dc49b762621ebd6793cff5f7fb36a29fecfd883f145086f15d40962c4",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b3425a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_010.jpg",
+      "chapter": 100,
+      "reader_image_number": 10,
+      "beat": "Wide clash spread",
+      "width": 2133,
+      "height": 1600,
+      "bytes": 1242627,
+      "sha256": "85c1ce47a3275a90da7301a192eb16a2e2f33d4cdf1bfd40ccb153823f2dcba2",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b24a5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_011.jpg",
+      "chapter": 100,
+      "reader_image_number": 11,
+      "beat": "Crash onto the Noh stage",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 604139,
+      "sha256": "7acf6e25fa7db2832d5c09203fae14db5ee050885a4eec99a6fd5d983710255c",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b24b5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_014.jpg",
+      "chapter": 100,
+      "reader_image_number": 14,
+      "beat": "Stage exchange and repositioning",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 527805,
+      "sha256": "58cb200afe50c7f2c91bea10bf9869a5f56ab8e6114e10826324ef52e3f5a595",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b24e5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_015.jpg",
+      "chapter": 100,
+      "reader_image_number": 15,
+      "beat": "Disguise reveal",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 528301,
+      "sha256": "c0ba1d8ac2fb05ff6630d1c864d0e0a41fdee0c5fcdb38de62baa6d436121261",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b24f5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_016.jpg",
+      "chapter": 100,
+      "reader_image_number": 16,
+      "beat": "Hammer reflection and counter",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 592715,
+      "sha256": "68b63a960a07d9887b1bae770e3f00d8dd437d63acfa9164f497c6d496b161ac",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b24c5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    },
+    {
+      "file": "panels/ch100_017.jpg",
+      "chapter": 100,
+      "reader_image_number": 17,
+      "beat": "Decisive impact spread",
+      "width": 2133,
+      "height": 1600,
+      "bytes": 682917,
+      "sha256": "c934a4dc913c75bfb1320f71404f286ccd16f8c0b1b9aa647626ee883899f769",
+      "source_image_url": "https://m3z.mfcdn2.xyz/mf/12a3db61fa0f4f41a6cb794187a7e8079435ac455ab1a1b24d5a37edf329c58d235ddf1e496423eaff35/h/p.jpg"
+    }
+  ]
+}
