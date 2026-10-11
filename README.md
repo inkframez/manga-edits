@@ -51,6 +51,8 @@ folder, and `tools/setup_fonts.py` downloads free (OFL) fonts from Google Fonts 
 | Segoe UI Black / Regular / Semilight | Inter (900, 400, 350) | labels, English subtitles |
 | Segoe Print Bold | Kalam Bold | handwriting |
 | Yu Gothic Bold / Medium / Light | Noto Sans JP (800, 500, 300) | Japanese type |
+| Impact | Anton | condensed display type (Kagurabachi, Steel Ball Run) |
+| Bahnschrift | Barlow Condensed SemiBold | condensed labels |
 
 ```bash
 pip install -r requirements.txt

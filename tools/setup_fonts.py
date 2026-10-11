@@ -28,6 +28,8 @@ FONTS = {
     'YuGothL.ttc': ('notosansjp/NotoSansJP[wght].ttf', {'wght': 300}),
     'NotoSerifJP-B.ttf': ('notoserifjp/NotoSerifJP[wght].ttf', {'wght': 700}),               # Japanese mincho
     'NotoSerifJP-M.ttf': ('notoserifjp/NotoSerifJP[wght].ttf', {'wght': 500}),
+    'impact.ttf': ('anton/Anton-Regular.ttf', None),                                          # condensed display
+    'bahnschrift.ttf': ('barlowcondensed/BarlowCondensed-SemiBold.ttf', None),                # condensed labels
 }
 
 _cache = {}
