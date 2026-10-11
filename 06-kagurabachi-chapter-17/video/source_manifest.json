@@ -1,0 +1,86 @@
+[
+  {
+    "page": "01.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "0ee448640f16785fe2d5c2c3a1a2651c3b5f2a4dc277cc6e7f3665b5aac2bb04"
+  },
+  {
+    "page": "02.png",
+    "width": 2133,
+    "height": 1600,
+    "sha256": "58ede4e608c9cf7c4910682774c433acbbc18021c30bdc4dc0905b2ee3c48b47"
+  },
+  {
+    "page": "03.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "af21a08f6fcb0fe0d3f7e95a289cba15ceeeb49e62b963a919865f32cc7647ff"
+  },
+  {
+    "page": "04.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "9d012dfc3e604494bbe918dca7856e819e455137b1cce0dc6470998fc22c257b"
+  },
+  {
+    "page": "05.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "a3f46f7803ebbdba43ee2f5ef6d8251c8ba6f6679165e4ff38da1dece76df825"
+  },
+  {
+    "page": "06.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "97f8679d70d1d6ed82caf9d8d1355a1dcf57935ea85282088e0c6f016fbbc660"
+  },
+  {
+    "page": "07.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "7aa9e1577dde8e069da6baaf3f006315b4ab479a18ff1d7dedd8387e5639b75a"
+  },
+  {
+    "page": "08.png",
+    "width": 2133,
+    "height": 1600,
+    "sha256": "3f668c230e9b4f3a0d4bb9e1596e97691fc0e3dc12adb12be9754ff8e0692563"
+  },
+  {
+    "page": "09.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "eb8d90ed3a67eb78516ccf6ce980c4502e51c91cf103b86e7182733ca9750739"
+  },
+  {
+    "page": "10.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "bd4e4767883d51a5f58492328b0e5711d49f6ae9f17e517cd54019008fb6c620"
+  },
+  {
+    "page": "11.png",
+    "width": 2133,
+    "height": 1600,
+    "sha256": "8e066fee32536fb588b27863e364d0e3dfc0d4e8eb9020d9df656d47993cc135"
+  },
+  {
+    "page": "12.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "ca0430641bb44d8ef4c7d7a34969119bbfe8d458026bf4fb9d234bca66512bf1"
+  },
+  {
+    "page": "13.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "1f981233e949d377c2d64c0445b14a9eb495586ecfcc5f314bdd8679c4b69ee9"
+  },
+  {
+    "page": "14.png",
+    "width": 1067,
+    "height": 1600,
+    "sha256": "4266ee275991b1e48070444369f7102d732fcf08fcd942ff6687653d2d0f3698"
+  }
+]

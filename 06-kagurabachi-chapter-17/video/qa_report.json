@@ -1,0 +1,17 @@
+{
+  "file": "kagurabachi-short.mp4",
+  "width": 1080.0,
+  "height": 1920.0,
+  "fps": 30.0,
+  "decoded_frames": 1080,
+  "duration_seconds": 36.0,
+  "shots": 28,
+  "source_pages": 14,
+  "min_frame_mean": 21.319445569701646,
+  "max_frame_mean": 178.23940907921812,
+  "audio_integrated_lufs": -13.64,
+  "audio_true_peak_dbtp": -0.95,
+  "audio_loudness_range_lu": 7.2,
+  "timeline_contiguous": true,
+  "size_mb": 32.46
+}
