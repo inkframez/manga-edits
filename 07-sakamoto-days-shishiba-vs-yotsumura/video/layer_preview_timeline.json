@@ -1,0 +1,16 @@
+{
+  "duration": 9.0,
+  "fps": 30,
+  "bpm": 160,
+  "width": 1080,
+  "height": 1920,
+  "palette": {"paper": "#EFEAE0", "ink": "#0B0B0D", "amber": "#F5B335"},
+  "scenes": [
+    {"id": "opening", "start": 0.0, "end": 3.0},
+    {"id": "reflection", "start": 3.0, "end": 5.25},
+    {"id": "hold", "start": 5.25, "end": 6.0},
+    {"id": "impact", "start": 6.0, "end": 9.0}
+  ],
+  "events": {"opening_hit": 0.375, "reflection_cut": 3.0, "glint": 4.125, "quiet_start": 5.25, "impact": 6.0, "settle": 8.25},
+  "sound": {"kick_beats": [0,2,3.5,4,6,7,8,10,12,16,18,20,22], "snare_beats": [2,6,10,12,18,22], "whooshes": [0.15,2.85,3.65,5.98]}
+}

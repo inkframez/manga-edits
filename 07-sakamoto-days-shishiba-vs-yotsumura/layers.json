@@ -1,0 +1,1217 @@
+{
+  "version": 1,
+  "coordinate_system": "Source image pixels; origin is top-left; sprite_scale maps PNG pixels to source pixels; pivot is in PNG pixels; panel_crop is [left,top,right,bottom].",
+  "tool": "Canva Magic Layers; generated raster layers exported from the browser and saved losslessly as PNG.",
+  "original_design": "https://www.canva.com/design/DAHX2kvlMVc/X-U-gZ1wzAilnLxCg7bXsw/edit",
+  "working_design": "https://www.canva.com/design/DAHX5g2VC0g/ieO3DyRFQrEOJQ-hWJWbiA/edit",
+  "processed_source_images": 10,
+  "assets": [
+    {
+      "id": "opening_yotsumura",
+      "file": "cutouts/opening_yotsumura.png",
+      "source": "panels/ch100_004.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        0,
+        0,
+        1200,
+        1035
+      ],
+      "role": "character",
+      "origin": [
+        92,
+        292
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        439,
+        653
+      ],
+      "z": 2,
+      "pivot": [
+        219.5,
+        326.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 20,
+      "notes": "Black-haired fighter; drawn sword and coat remain together.",
+      "alignment": {
+        "method": "Prior full-feature SIFT/RANSAC registration",
+        "inliers": 487,
+        "median_error_px": 0.2
+      },
+      "sha256": "0152ac8c6ed6a6c71da38cbf2259e4c13fe434057f927e9f54702c38930a0f17"
+    },
+    {
+      "id": "opening_shishiba",
+      "file": "cutouts/opening_shishiba.png",
+      "source": "panels/ch100_004.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        0,
+        0,
+        1200,
+        1035
+      ],
+      "role": "character",
+      "origin": [
+        530,
+        360
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        440,
+        518
+      ],
+      "z": 2,
+      "pivot": [
+        220.0,
+        259.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 24,
+      "notes": "Long-haired fighter; keep drawn pose intact.",
+      "alignment": {
+        "method": "SIFT/RANSAC",
+        "inliers": 42,
+        "median_error_px": 0.1532531385611639
+      },
+      "sha256": "abc9539e8d0b42241734f4c5a3f58ef91a7bcc46d1ae2a2bf0eb9ab45739c0a5"
+    },
+    {
+      "id": "opening_rooftop",
+      "file": "backgrounds/opening_rooftop.png",
+      "source": "panels/ch100_004.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        0,
+        0,
+        1200,
+        1035
+      ],
+      "role": "background",
+      "origin": [
+        0,
+        0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1200,
+        1035
+      ],
+      "z": 0,
+      "pivot": [
+        600.0,
+        517.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": true,
+      "max_translation_source_px": 8,
+      "notes": "Canva removed fighters and recognized lettering; exposed areas contain white energy strokes. Restore original top 290-pixel art strip to retain drawn sound effect.",
+      "alignment": {
+        "method": "SIFT/RANSAC",
+        "inliers": 561,
+        "median_error_px": 0.05711655176974195
+      },
+      "sha256": "36c7212fe3552041068c366b633c5f6892f2214ee26122b12f0ccc9643410da0"
+    },
+    {
+      "id": "descent_interior",
+      "file": "backgrounds/descent_interior.png",
+      "source": "panels/ch100_006.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        0,
+        0,
+        1200,
+        1800
+      ],
+      "role": "background",
+      "origin": [
+        0.0,
+        0.0
+      ],
+      "sprite_scale": 1.125182,
+      "size": [
+        575,
+        1600
+      ],
+      "z": 0,
+      "pivot": [
+        287.5,
+        800.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": true,
+      "max_translation_source_px": 8,
+      "notes": "Reconstructed fighter area; use only behind descent_pair at its recorded origin. Canva export is smaller than its source footprint; use recorded scale 1.125182, not a fabricated high-resolution replacement.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 407,
+        "median_error_px": 0.08304668091860207,
+        "geometry_verified": true
+      },
+      "sha256": "28a348a794ed015bb39f18408441483113e8e33d1a30a88bdb242ba6e2cd097e"
+    },
+    {
+      "id": "descent_exterior",
+      "file": "backgrounds/descent_exterior.png",
+      "source": "panels/ch100_006.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        0,
+        0,
+        1200,
+        1800
+      ],
+      "role": "background",
+      "origin": [
+        623.0,
+        607.001
+      ],
+      "sprite_scale": 1.494799,
+      "size": [
+        386,
+        798
+      ],
+      "z": 0,
+      "pivot": [
+        193.0,
+        399.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": true,
+      "max_translation_source_px": 8,
+      "notes": "Building exterior with reconstructed impact regions; keep movements small. Canva export is smaller than its source footprint; use recorded scale 1.494799, not a fabricated high-resolution replacement.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 68,
+        "median_error_px": 0.18095938854350824,
+        "geometry_verified": true
+      },
+      "sha256": "0c5da6fb98941d5e3d740f7f7f41eac961d1f6a93954dc144a7c167bb7951f26"
+    },
+    {
+      "id": "descent_pair",
+      "file": "cutouts/descent_pair.png",
+      "source": "panels/ch100_006.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        0,
+        0,
+        1200,
+        1800
+      ],
+      "role": "action_pair",
+      "origin": [
+        184.0,
+        315.0
+      ],
+      "sprite_scale": 1.228054,
+      "size": [
+        320,
+        550
+      ],
+      "z": 2,
+      "pivot": [
+        160.0,
+        275.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 12,
+      "notes": "Overlapping fighters remain joined. Slight white edge; use at modest scale. Canva export is smaller than its source footprint; use recorded scale 1.228054, not a fabricated high-resolution replacement.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 82,
+        "median_error_px": 0.12360558848176187,
+        "geometry_verified": true
+      },
+      "sha256": "8959800c8e583ead017884655c3083b37e53579fbec0651f75fc99ed5b1b8948"
+    },
+    {
+      "id": "descent_yotsumura_face",
+      "file": "details/descent_yotsumura_face.png",
+      "source": "panels/ch100_006.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        0,
+        0,
+        1200,
+        1800
+      ],
+      "role": "detail",
+      "origin": [
+        830.001,
+        135.0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        370,
+        405
+      ],
+      "z": 2,
+      "pivot": [
+        185.0,
+        202.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 0,
+      "notes": "Partial face, suitable for a fixed close-up band.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 133,
+        "median_error_px": 0.06104046119525105,
+        "geometry_verified": true
+      },
+      "sha256": "dfa8aa847c919cb0394ceb8f007db04130f60c9b63bb6ec023dac2ca602c7386"
+    },
+    {
+      "id": "descent_debris",
+      "file": "cutouts/descent_debris.png",
+      "source": "panels/ch100_006.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        0,
+        0,
+        1200,
+        1800
+      ],
+      "role": "effect",
+      "origin": [
+        715.001,
+        742.001
+      ],
+      "sprite_scale": 1.434866,
+      "size": [
+        338,
+        549
+      ],
+      "z": 3,
+      "pivot": [
+        169.0,
+        274.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 14,
+      "notes": "Original drawn impact debris separated by Canva. Canva export is smaller than its source footprint; use recorded scale 1.434866, not a fabricated high-resolution replacement.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 69,
+        "median_error_px": 0.10212262467501364,
+        "geometry_verified": true
+      },
+      "sha256": "f55bcf434f364decfa82bc220867ee8f9f9ae82680a8d245430dbfbe37465b29"
+    },
+    {
+      "id": "passage_interior",
+      "file": "backgrounds/passage_interior.png",
+      "source": "panels/ch100_008.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        40,
+        600,
+        1160,
+        1800
+      ],
+      "role": "background",
+      "origin": [
+        302.004,
+        637.0
+      ],
+      "sprite_scale": 1.073854,
+      "size": [
+        799,
+        472
+      ],
+      "z": 0,
+      "pivot": [
+        399.5,
+        236.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": true,
+      "max_translation_source_px": 6,
+      "notes": "Canva cleaned the standing figure; exported at 799x472. Use sprite_scale to restore source coordinates. Canva export is smaller than its source footprint; use recorded scale 1.073854, not a fabricated high-resolution replacement.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 45,
+        "median_error_px": 0.03750833784326579,
+        "geometry_verified": true
+      },
+      "sha256": "ebecaea43274c35269cdbcfe2eb542df2b354ab0850bf44749b6ae6391df7018"
+    },
+    {
+      "id": "passage_shishiba_small",
+      "file": "cutouts/passage_shishiba_small.png",
+      "source": "panels/ch100_008.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        40,
+        600,
+        1160,
+        1800
+      ],
+      "role": "character",
+      "origin": [
+        722.01,
+        768.002
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        71,
+        245
+      ],
+      "z": 2,
+      "pivot": [
+        35.5,
+        122.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 5,
+      "notes": "Tiny source figure: do not use for a close-up.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 0,
+        "median_error_px": null,
+        "geometry_verified": true
+      },
+      "sha256": "19e144e573b3f5418e316dc2e283eb19b0affae07258373a31b8c9eeca8631d7"
+    },
+    {
+      "id": "passage_mural",
+      "file": "backgrounds/passage_mural.png",
+      "source": "panels/ch100_008.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        40,
+        600,
+        1160,
+        1800
+      ],
+      "role": "background",
+      "origin": [
+        92.001,
+        1162.008
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1033,
+        638
+      ],
+      "z": 0,
+      "pivot": [
+        516.5,
+        319.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": true,
+      "max_translation_source_px": 8,
+      "notes": "Wall plate behind Shishiba; reconstructed areas require foreground coverage.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 3,
+        "median_error_px": 0.0,
+        "geometry_verified": true
+      },
+      "sha256": "feb3fd39104af10fd7e9d9853cdbd8d8eec486b5cd3a58f39527bbc55ee4950d"
+    },
+    {
+      "id": "passage_shishiba",
+      "file": "cutouts/passage_shishiba.png",
+      "source": "panels/ch100_008.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        40,
+        600,
+        1160,
+        1800
+      ],
+      "role": "character",
+      "origin": [
+        477.006,
+        1181.009
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        561,
+        619
+      ],
+      "z": 2,
+      "pivot": [
+        280.5,
+        309.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 12,
+      "notes": "White shirt, fingers, hammer, and hair retained.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 20,
+        "median_error_px": 0.03695294819901554,
+        "geometry_verified": true
+      },
+      "sha256": "bd380aa15805af990c19dd3808091df8e50a348c3e0e9ff86dfe732c2b319eee"
+    },
+    {
+      "id": "passage_sparks",
+      "file": "cutouts/passage_sparks.png",
+      "source": "panels/ch100_008.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        40,
+        600,
+        1160,
+        1800
+      ],
+      "role": "effect",
+      "origin": [
+        355.005,
+        1406.012
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        228,
+        394
+      ],
+      "z": 3,
+      "pivot": [
+        114.0,
+        197.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 12,
+      "notes": "White ink sparks: composite on a dark surface.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 0,
+        "median_error_px": null,
+        "geometry_verified": true
+      },
+      "sha256": "56665cfd95bcb598385dc5561dd37f9c71a60af65c297b1b4447889af50ec878"
+    },
+    {
+      "id": "clash_yotsumura",
+      "file": "cutouts/clash_yotsumura.png",
+      "source": "panels/ch100_010.jpg",
+      "source_size": [
+        2133,
+        1600
+      ],
+      "panel_crop": [
+        0,
+        0,
+        2133,
+        925
+      ],
+      "role": "character",
+      "origin": [
+        0.0,
+        0.0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1044,
+        925
+      ],
+      "z": 2,
+      "pivot": [
+        522.0,
+        462.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 16,
+      "notes": "Left fighter; blade stays attached.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 129,
+        "median_error_px": 0.0978301324404238,
+        "geometry_verified": true
+      },
+      "sha256": "a9e53529a891e07c583c066bf514ce4597848673cb07835191384a20346f58f7"
+    },
+    {
+      "id": "clash_shishiba",
+      "file": "cutouts/clash_shishiba.png",
+      "source": "panels/ch100_010.jpg",
+      "source_size": [
+        2133,
+        1600
+      ],
+      "panel_crop": [
+        0,
+        0,
+        2133,
+        925
+      ],
+      "role": "character",
+      "origin": [
+        788.004,
+        0.0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1183,
+        925
+      ],
+      "z": 2,
+      "pivot": [
+        591.5,
+        462.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 16,
+      "notes": "Right fighter; hammer and curved blade overlap remain drawn.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 231,
+        "median_error_px": 0.07343543019068005,
+        "geometry_verified": true
+      },
+      "sha256": "a378f861434c7cd88646f1ee6b2a6140b60a60d38bc422fe697a5c7e534e9f03"
+    },
+    {
+      "id": "stage_arrival",
+      "file": "backgrounds/stage_arrival.png",
+      "source": "panels/ch100_011.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        1000,
+        1150,
+        1780
+      ],
+      "role": "background",
+      "origin": [
+        50.0,
+        1000.0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1100,
+        780
+      ],
+      "z": 0,
+      "pivot": [
+        550.0,
+        390.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": true,
+      "max_translation_source_px": 6,
+      "notes": "Canva-reconstructed stage plate. Retain the drawn impact mark; keep fighter over its original area.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 232,
+        "median_error_px": 0.050170344292248654,
+        "geometry_verified": true
+      },
+      "sha256": "1626ab37ad8fe03e2709d25292d2b67ce0f2e8616a04c39339322518d4e621ac"
+    },
+    {
+      "id": "stage_shishiba",
+      "file": "cutouts/stage_shishiba.png",
+      "source": "panels/ch100_011.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        1000,
+        1150,
+        1780
+      ],
+      "role": "character",
+      "origin": [
+        105.0,
+        1270.0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        605,
+        495
+      ],
+      "z": 2,
+      "pivot": [
+        302.5,
+        247.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 10,
+      "notes": "Leaping silhouette includes part of the drawn trail; avoid large displacement.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 119,
+        "median_error_px": 0.07747009151506798,
+        "geometry_verified": true
+      },
+      "sha256": "b081b3458399230fa7a96f3b8f1c812b6975542ec23fc25e72a819ddbc760f55"
+    },
+    {
+      "id": "stage_disguise_plate",
+      "file": "backgrounds/stage_disguise_plate.png",
+      "source": "panels/ch100_014.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        1050,
+        1150,
+        1780
+      ],
+      "role": "background",
+      "origin": [
+        146.001,
+        1148.001
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        949,
+        632
+      ],
+      "z": 0,
+      "pivot": [
+        474.5,
+        316.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": true,
+      "max_translation_source_px": 5,
+      "notes": "Mostly paper with faint reconstructed strokes; use only behind matching foreground.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 22,
+        "median_error_px": 0.05780089349418381,
+        "geometry_verified": true
+      },
+      "sha256": "63e6f5ace803e42c2bdec6e924c598de0ba0381316fe3f1ddc50c1d5375af411"
+    },
+    {
+      "id": "stage_yotsumura",
+      "file": "cutouts/stage_yotsumura.png",
+      "source": "panels/ch100_014.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        1050,
+        1150,
+        1780
+      ],
+      "role": "character",
+      "origin": [
+        201.001,
+        1400.002
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        262,
+        254
+      ],
+      "z": 2,
+      "pivot": [
+        131.0,
+        127.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 8,
+      "notes": "Small mid-body pose; no enlargement beyond roughly 2x.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 24,
+        "median_error_px": 0.06352697928193735,
+        "geometry_verified": true
+      },
+      "sha256": "730bac7427a68af34ecbca30adbe2c9ffc467b57879e13c69498708772b0a8ec"
+    },
+    {
+      "id": "stage_disguise_pair",
+      "file": "cutouts/stage_disguise_pair.png",
+      "source": "panels/ch100_014.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        1050,
+        1150,
+        1780
+      ],
+      "role": "action_pair",
+      "origin": [
+        215.001,
+        1148.001
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        880,
+        632
+      ],
+      "z": 2,
+      "pivot": [
+        440.0,
+        316.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 10,
+      "notes": "Cloak and overlapping Shishiba remain joined.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 86,
+        "median_error_px": 0.18640338603664747,
+        "geometry_verified": true
+      },
+      "sha256": "5e6c2484da2f4866285978fd7e91275864b50ffffcebff0adf34115e2082c027"
+    },
+    {
+      "id": "reveal_motion_trail",
+      "file": "cutouts/reveal_motion_trail.png",
+      "source": "panels/ch100_015.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        0,
+        1150,
+        1000
+      ],
+      "role": "effect",
+      "origin": [
+        101.0,
+        281.001
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        345,
+        719
+      ],
+      "z": 3,
+      "pivot": [
+        172.5,
+        359.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 8,
+      "notes": "Drawn motion texture, not a complete character.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 103,
+        "median_error_px": 0.05932692644696362,
+        "geometry_verified": true
+      },
+      "sha256": "3aacb14e0e29145d1a23f8adf9f92ee0f8cd8a3c7082251652ceaecb07fe760f"
+    },
+    {
+      "id": "reveal_yotsumura_head",
+      "file": "details/reveal_yotsumura_head.png",
+      "source": "panels/ch100_015.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        0,
+        1150,
+        1000
+      ],
+      "role": "detail",
+      "origin": [
+        221.001,
+        93.0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        483,
+        736
+      ],
+      "z": 2,
+      "pivot": [
+        241.5,
+        368.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 5,
+      "notes": "Head/neck fragment; move with disguise cloth, never rig as a free body.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 110,
+        "median_error_px": 0.10862773883395586,
+        "geometry_verified": true
+      },
+      "sha256": "16c765b4eb53bd5b072fee4b4f8af3b8571d7f2e91fe062a7015e5af58858df3"
+    },
+    {
+      "id": "reveal_disguise_cloth",
+      "file": "cutouts/reveal_disguise_cloth.png",
+      "source": "panels/ch100_015.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        0,
+        1150,
+        1000
+      ],
+      "role": "prop",
+      "origin": [
+        462.002,
+        187.001
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        688,
+        813
+      ],
+      "z": 2,
+      "pivot": [
+        344.0,
+        406.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 8,
+      "notes": "Patterned disguise cloth; preserve original orientation.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 145,
+        "median_error_px": 0.06606777103479296,
+        "geometry_verified": true
+      },
+      "sha256": "149e22d858d3ab41582ecbe22927d0997e482397a6f256e6a3bba61a44573aaa"
+    },
+    {
+      "id": "hammer_reflection",
+      "file": "details/hammer_reflection.png",
+      "source": "panels/ch100_016.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        0,
+        1150,
+        1020
+      ],
+      "role": "detail",
+      "origin": [
+        84.0,
+        0.0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1015,
+        415
+      ],
+      "z": 2,
+      "pivot": [
+        507.5,
+        207.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 0,
+      "notes": "Flat reflection detail: preserve the reflected face, do not reconstruct or animate it.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 347,
+        "median_error_px": 0.055765885189731204,
+        "geometry_verified": true
+      },
+      "sha256": "6c9e696ed4469ba69195493c88deb5f51f18af2afc60c981700d036f655d4dc8"
+    },
+    {
+      "id": "hammer_speedlines",
+      "file": "backgrounds/hammer_speedlines.png",
+      "source": "panels/ch100_016.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        0,
+        1150,
+        1020
+      ],
+      "role": "background",
+      "origin": [
+        84.0,
+        430.005
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1015,
+        431
+      ],
+      "z": 0,
+      "pivot": [
+        507.5,
+        215.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": true,
+      "max_translation_source_px": 8,
+      "notes": "Speed-line plate after Canva removed the flying hammer and hand.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 0,
+        "median_error_px": null,
+        "geometry_verified": true
+      },
+      "sha256": "51972473088a84d336a6dee4cf724067a653239222ff608517a4afebb2d2e371"
+    },
+    {
+      "id": "hammer_flying",
+      "file": "cutouts/hammer_flying.png",
+      "source": "panels/ch100_016.jpg",
+      "source_size": [
+        1200,
+        1800
+      ],
+      "panel_crop": [
+        50,
+        0,
+        1150,
+        1020
+      ],
+      "role": "prop",
+      "origin": [
+        409.91,
+        429.95
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        465,
+        383
+      ],
+      "z": 2,
+      "pivot": [
+        232.5,
+        191.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 18,
+      "notes": "Hammer with its original reflection embedded in the metal.",
+      "alignment": {
+        "method": "SIFT/RANSAC",
+        "inliers": 74,
+        "median_error_px": 0.20570519855638433
+      },
+      "sha256": "c919cd5371f0e67f7fae4daff75596fffe6f2d17d104dd5ef2881c75b158bdfe"
+    },
+    {
+      "id": "impact_ink_arc",
+      "file": "cutouts/impact_ink_arc.png",
+      "source": "panels/ch100_017.jpg",
+      "source_size": [
+        2133,
+        1600
+      ],
+      "panel_crop": [
+        640,
+        0,
+        2133,
+        1600
+      ],
+      "role": "effect",
+      "origin": [
+        640.0,
+        0.0
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1214,
+        825
+      ],
+      "z": 3,
+      "pivot": [
+        607.0,
+        412.5
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 18,
+      "notes": "Original drawn ink arc separated by Canva.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 0,
+        "median_error_px": null,
+        "geometry_verified": true
+      },
+      "sha256": "c863142fca44ded147c789d1ef572d89fc79ae131b856fe50f09f1f349a7e915"
+    },
+    {
+      "id": "impact_droplets",
+      "file": "cutouts/impact_droplets.png",
+      "source": "panels/ch100_017.jpg",
+      "source_size": [
+        2133,
+        1600
+      ],
+      "panel_crop": [
+        640,
+        0,
+        2133,
+        1600
+      ],
+      "role": "effect",
+      "origin": [
+        640.0,
+        750.007
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        327,
+        250
+      ],
+      "z": 3,
+      "pivot": [
+        163.5,
+        125.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 16,
+      "notes": "Original ink droplets.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 0,
+        "median_error_px": null,
+        "geometry_verified": true
+      },
+      "sha256": "3b942f96e4bb25bcede06c9ea837d38f3c4bfa86cc06f27b5e0daaade63bde65"
+    },
+    {
+      "id": "impact_pair",
+      "file": "cutouts/impact_pair.png",
+      "source": "panels/ch100_017.jpg",
+      "source_size": [
+        2133,
+        1600
+      ],
+      "panel_crop": [
+        640,
+        0,
+        2133,
+        1600
+      ],
+      "role": "action_pair",
+      "origin": [
+        640.0,
+        350.003
+      ],
+      "sprite_scale": 1.0,
+      "size": [
+        1493,
+        1250
+      ],
+      "z": 2,
+      "pivot": [
+        746.5,
+        625.0
+      ],
+      "rotation_degrees": 0,
+      "reconstructed": false,
+      "max_translation_source_px": 20,
+      "notes": "Finishing pose is a joined action pair; preserve its silhouette.",
+      "alignment": {
+        "method": "Canva visible DOM geometry, normalized to uploaded crop",
+        "inliers": 376,
+        "median_error_px": 0.06474383755892675,
+        "geometry_verified": true
+      },
+      "sha256": "f36ad7fe54cfe3c5f16b3530ecf013851bf8140e07d2346e78e363a4cf998591"
+    }
+  ],
+  "rejected": [
+    {
+      "source": "panels/ch100_007.jpg",
+      "reason": "Magic Layers returned panel strips and speech balloons rather than independent fighters. Retain the original flat panel."
+    },
+    {
+      "source": "panels/ch100_010.jpg",
+      "reason": "Reconstructed background retained ghost fighter shapes. Exported characters are usable on designed fields; use the source spread for static holds."
+    },
+    {
+      "source": "panels/ch100_017.jpg",
+      "reason": "Background contains a reconstructed standing silhouette. Use a paper field and ink layers for motion, then settle into the original spread."
+    },
+    {
+      "source": "all",
+      "reason": "Automatically recognized replacement lettering, empty page bases, border fragments, and tiny incidental fragments excluded."
+    },
+    {
+      "source": "panels/ch100_016.jpg",
+      "reason": "Release-hand export lost white interior pixels. Use the original flat panel for this hand; no substitute is fabricated."
+    }
+  ]
+}

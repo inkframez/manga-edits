@@ -1,0 +1,25 @@
+{
+  "accepted_layers": 29,
+  "roles": {
+    "character": 8,
+    "background": 8,
+    "action_pair": 3,
+    "detail": 3,
+    "effect": 5,
+    "prop": 2
+  },
+  "source_images_verified": 10,
+  "rgba_and_hashes_verified": true,
+  "decoded_frames": 270,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "duration": 9.0,
+  "aac_integrated_lufs": -13.97,
+  "aac_true_peak_dbtp": -1.31,
+  "quiet_gap_rms_ratio": 0.0,
+  "impact_frame": 180,
+  "impact_audio_sample": 288000
+}

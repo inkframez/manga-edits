@@ -44,6 +44,14 @@ The JPEGs retain their original artwork, dialogue, and margins for the editor to
 
 Reader: https://mangafire.to/title/8037o-sakamoto-dayss/chapter/9024120
 
+## Layer pack and preview
+
+The next preparation pass adds 29 accepted Canva Magic Layers assets and a
+9-second vertical motion preview. See [LAYER_HANDOFF.md](LAYER_HANDOFF.md) for
+layer coordinates, quality limits, rendering commands, and cloud editing notes.
+`layers.json` is the asset interface; `layer-contact-sheet.jpg` and
+`layer-preview-sheet.jpg` show the layers and preview frames.
+
 ## Cloud handoff
 
 Upload this folder's `panels/`, `contact-sheet.jpg`, and `sources.json` together.
@@ -55,5 +63,6 @@ Use the dark passage and stage as distinct locations, and keep the wide spreads
 readable when composing for a vertical frame. Consult the actual images before
 adding story claims; the saved excerpt does not establish Yotsumura's eventual fate.
 
-Asset preparation only: no soundtrack, video renderer, or final video is included.
+The included soundtrack and renderer belong to the 9-second demonstration.
+The complete fight Short is left to the cloud editing session.
 Artwork credit: Yuto Suzuki / Shueisha.
