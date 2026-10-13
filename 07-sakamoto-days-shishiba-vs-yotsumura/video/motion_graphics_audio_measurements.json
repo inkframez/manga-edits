@@ -1,0 +1,27 @@
+{
+  "first_pass": {
+    "input_i": "-25.56",
+    "input_tp": "-14.89",
+    "input_lra": "2.70",
+    "input_thresh": "-35.87",
+    "output_i": "-14.54",
+    "output_tp": "-4.21",
+    "output_lra": "1.90",
+    "output_thresh": "-24.85",
+    "normalization_type": "dynamic",
+    "target_offset": "0.54"
+  },
+  "normalized": {
+    "input_i": "-25.56",
+    "input_tp": "-14.89",
+    "input_lra": "2.70",
+    "input_thresh": "-35.87",
+    "output_i": "-14.00",
+    "output_tp": "-3.67",
+    "output_lra": "2.00",
+    "output_thresh": "-24.31",
+    "normalization_type": "dynamic",
+    "target_offset": "0.00"
+  },
+  "output_gain_db": 0.5
+}

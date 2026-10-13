@@ -52,6 +52,12 @@ layer coordinates, quality limits, rendering commands, and cloud editing notes.
 `layers.json` is the asset interface; `layer-contact-sheet.jpg` and
 `layer-preview-sheet.jpg` show the layers and preview frames.
 
+The subsequent [motion graphics version](MOTION_GRAPHICS.md) adds a new
+9-second reference-informed edit, `sakamoto-motion-graphics-short.mp4`, with
+faster camera arrivals, more varied framing, a disguise reveal, original audio,
+and a complete-spread ending. Its renderer and timing map are separate from the
+earlier layer preview.
+
 ## Cloud handoff
 
 Upload this folder's `panels/`, `contact-sheet.jpg`, and `sources.json` together.

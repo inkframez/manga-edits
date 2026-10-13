@@ -1,0 +1,19 @@
+{
+  "duration": 9.0,
+  "fps": 30,
+  "bpm": 160,
+  "width": 1080,
+  "height": 1920,
+  "palette": {"paper": "#EFEAE0", "ink": "#0B0B0D", "amber": "#F5B335"},
+  "scenes": [
+    {"id": "opening", "start": 0.0, "end": 1.5, "motion": "Contact close-up pulls out to rooftop, fighters counter-drift within extraction limits"},
+    {"id": "clash", "start": 1.5, "end": 2.625, "motion": "Opposed fighters over sliced type, camera runs along blade, cut to authentic wide band"},
+    {"id": "disguise", "start": 2.625, "end": 3.375, "motion": "Stage reveal with joined pose and cloth crossing the type"},
+    {"id": "reveal", "start": 3.375, "end": 4.125, "motion": "Head and cloth track together, whip follows original motion trail"},
+    {"id": "reflection", "start": 4.125, "end": 5.25, "motion": "Push into metal, free hammer crosses image bands, restrained glint"},
+    {"id": "hold", "start": 5.25, "end": 6.0, "motion": "Picture freezes and score stops"},
+    {"id": "impact", "start": 6.0, "end": 9.0, "motion": "Two paper frames, ink arc reveal, camera recoil, pull out to original spread"}
+  ],
+  "events": {"opening_hit": 0.375, "clash": 1.5, "disguise": 2.625, "reveal": 3.375, "reflection_cut": 4.125, "glint": 4.5, "quiet_start": 5.25, "impact": 6.0, "settle": 7.875},
+  "sound": {"kick_beats": [0,1,2,3.5,4,6,7,8,10,11,12,13,16,18,20], "snare_beats": [2,4,6,8,10,12,18,20], "whooshes": [0.22,1.43,2.57,3.32,4.03,5.98]}
+}
