@@ -1,0 +1,365 @@
+{
+  "title": "The Fragrant Flower Blooms with Dignity",
+  "characters": [
+    "Subaru Hoshina",
+    "Saku Natsusawa"
+  ],
+  "genre": "romance",
+  "source": "32 images attached by the user",
+  "saved_date": "2026-10-14",
+  "ordering": "Attachment order preserved. Filenames are upload indices, not chapter page numbers.",
+  "assets": [
+    {
+      "upload_order": 1,
+      "file": "panels/panel_001.png",
+      "attachment": "codex-clipboard-c00ad141-dfff-4290-a1fa-7ae4281f5d1f.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1119265,
+      "sha256": "20f17e8b85248a08ad933802c52053a0ea7a69ae1914095992f232ceb1f3ea4e"
+    },
+    {
+      "upload_order": 2,
+      "file": "panels/panel_002.png",
+      "attachment": "codex-clipboard-eb5e6449-dd9e-4591-8bbf-853a64d17eca.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1211497,
+      "sha256": "0cbc197516dc546bc499cbb52829ad6bc68984e8c70d5b78eedc3413f63d0cf1"
+    },
+    {
+      "upload_order": 3,
+      "file": "panels/panel_003.png",
+      "attachment": "codex-clipboard-7bd39b75-9e87-4710-83d6-c5b6473788c5.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1580660,
+      "sha256": "77e974930292d9fa815379219d2273f99c6398e43ae1089324fba7cc9b000cdf"
+    },
+    {
+      "upload_order": 4,
+      "file": "panels/panel_004.png",
+      "attachment": "codex-clipboard-dd482b5e-87ea-40de-8210-a59947aa049a.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1537239,
+      "sha256": "ebf34653dc0451e8ad07c7e3ea167bb639e5cfd782f8e21e8cda63ec57406f7f"
+    },
+    {
+      "upload_order": 5,
+      "file": "panels/panel_005.png",
+      "attachment": "codex-clipboard-4929243d-3a8a-4821-973c-a4032b6db4c5.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1469257,
+      "sha256": "f9d8807d5f0f80044665412c300d52b612406fe47e4bcc6a6f2d475144568143"
+    },
+    {
+      "upload_order": 6,
+      "file": "panels/panel_006.png",
+      "attachment": "codex-clipboard-d307f544-bf11-478a-8843-38e139967a90.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1361563,
+      "sha256": "ef1aa17fabd5da9a02f2d1f8cdd8e34d8bad8426beb35dc7b2e01c8d01571a00"
+    },
+    {
+      "upload_order": 7,
+      "file": "panels/panel_007.png",
+      "attachment": "codex-clipboard-19f145f7-2a10-4df9-b776-8d75fdcc3c32.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1399101,
+      "sha256": "5d8467298d6f6d1234beeb39073c98d6d81e4d87b154b1484dfd330e3224d16c"
+    },
+    {
+      "upload_order": 8,
+      "file": "panels/panel_008.png",
+      "attachment": "codex-clipboard-ced5174b-526d-48be-879b-81aef5eaa6bd.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1314751,
+      "sha256": "48763343d9b724a53e9ec1a43c5c5136f6ae3961942a043cc784e8954eb57c96"
+    },
+    {
+      "upload_order": 9,
+      "file": "panels/panel_009.png",
+      "attachment": "codex-clipboard-a738c3d4-a21f-452d-889a-7ce4da8fe65a.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1084745,
+      "sha256": "b75e14fbbb59d9ac480fc1472ec45c9af92947f71f8aae04f9cd14bba1b6b100"
+    },
+    {
+      "upload_order": 10,
+      "file": "panels/panel_010.png",
+      "attachment": "codex-clipboard-7ed23cb3-aa2a-4f43-a06d-ba275795175f.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1446694,
+      "sha256": "d30b3b611cc9673b5497ff7cd33b3301f5c180e6ca8ff44fa062857f7f7a4390"
+    },
+    {
+      "upload_order": 11,
+      "file": "panels/panel_011.png",
+      "attachment": "codex-clipboard-33e97766-8484-481f-9cc4-32b2d4de34d2.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1399559,
+      "sha256": "08616b071a72321dc5d29d77049eaa104252d2c0476fc79823c1e2ac9c2a17a2"
+    },
+    {
+      "upload_order": 12,
+      "file": "panels/panel_012.png",
+      "attachment": "codex-clipboard-650c6342-8b87-4f57-a7d7-3d139f67cc57.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1180572,
+      "sha256": "dce099dd02e8890a9620abd09213bbb7af2256c9bcce2e1b16d8cb6aada6cf1b"
+    },
+    {
+      "upload_order": 13,
+      "file": "panels/panel_013.png",
+      "attachment": "codex-clipboard-6de12fc6-91e6-4807-870d-c1fe0c1df53f.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1181640,
+      "sha256": "3f62d0d9a3f636c1eac2045bde7eb68a67d63a8a922c3915fc0874fb555cccd6"
+    },
+    {
+      "upload_order": 14,
+      "file": "panels/panel_014.png",
+      "attachment": "codex-clipboard-19f408fe-0a51-4d0e-8a2a-ea47b5d78311.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1186628,
+      "sha256": "0393b4166d2b2b5047aaeb39cbbeafbeedcf9807ced395ee671d2bf5a9e048db"
+    },
+    {
+      "upload_order": 15,
+      "file": "panels/panel_015.png",
+      "attachment": "codex-clipboard-9d3b7311-a67a-4d27-9334-58406ff9bc66.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1522647,
+      "sha256": "1d4f1a9c8c89d37e05c03bfd8c059bc6fb4ddaec3ba9f86aff9689bd763675d4"
+    },
+    {
+      "upload_order": 16,
+      "file": "panels/panel_016.png",
+      "attachment": "codex-clipboard-a940ea56-29bf-49d7-a805-2a405b6bc4f8.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1302338,
+      "sha256": "ed3cd8c2467d7d9da8e6fd5406ff6798210cd79b61f657ebffc0cc6bb897f262"
+    },
+    {
+      "upload_order": 17,
+      "file": "panels/panel_017.png",
+      "attachment": "codex-clipboard-a8e600c4-e979-4ba4-8c9b-01ac4e2dc33a.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1102951,
+      "sha256": "53804063e93998b26fd0e0189135335ce9bb90df7afe7251b2161c54e97dc35e"
+    },
+    {
+      "upload_order": 18,
+      "file": "panels/panel_018.png",
+      "attachment": "codex-clipboard-b0243ff5-f80c-4141-a316-1e2c9899da39.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1753505,
+      "sha256": "1342b9ff0b9f3bf7c4bae9e1711e4b89a3f9461201e3d6294e7547f65fca2acd"
+    },
+    {
+      "upload_order": 19,
+      "file": "panels/panel_019.png",
+      "attachment": "codex-clipboard-28e2149e-0917-4b9e-947b-62f37b288b9a.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1416609,
+      "sha256": "708cfdd28c73de12846e111225d310b0da064902241fad9dba5ef2037c0f6770"
+    },
+    {
+      "upload_order": 20,
+      "file": "panels/panel_020.png",
+      "attachment": "codex-clipboard-fc10e0a2-94b8-48c9-ac83-5bedbc126fad.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1283194,
+      "sha256": "b4f2c2577a9626732089c44ae4f22d64f8a6d0bd9fe06e5aeb0bff918db11932"
+    },
+    {
+      "upload_order": 21,
+      "file": "panels/panel_021.png",
+      "attachment": "codex-clipboard-fc19a26c-fcbb-4cbd-893e-f8d9859032ce.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1568198,
+      "sha256": "e42bf2bfe3a777e650a777daefcef09ca998c234ff4698b9b33a9948eef27c16"
+    },
+    {
+      "upload_order": 22,
+      "file": "panels/panel_022.png",
+      "attachment": "codex-clipboard-8a124844-f977-49c1-b655-e486c8685467.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1423347,
+      "sha256": "052ab58b7d171e735fc69561b91306f011a403146bf67fa6bdd0dedd9980f0eb"
+    },
+    {
+      "upload_order": 23,
+      "file": "panels/panel_023.png",
+      "attachment": "codex-clipboard-29e69d4a-de96-4e53-99a7-f76c1219900b.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1542246,
+      "sha256": "dafb5da5af62338a13323c546db90468b38f53d6c3d3117214fd1f21179e29b5"
+    },
+    {
+      "upload_order": 24,
+      "file": "panels/panel_024.png",
+      "attachment": "codex-clipboard-39e70238-ab30-4fce-a61a-0b7062e3d2a4.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1641335,
+      "sha256": "4be3478d5bd2e6fc292e440a56b2991de21f0deb6e2597a4e2f7bd86cf9ac998"
+    },
+    {
+      "upload_order": 25,
+      "file": "panels/panel_025.png",
+      "attachment": "codex-clipboard-7daf1c6f-da60-4e59-9b93-6f3b92e0fe47.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1323956,
+      "sha256": "faef44b374659c605e7bdabf84a5cf583ee36f618c78ceef7f8ae48545e8a155"
+    },
+    {
+      "upload_order": 26,
+      "file": "panels/panel_026.png",
+      "attachment": "codex-clipboard-b06315d1-ef43-4dc6-8efd-e416858f1b87.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1525272,
+      "sha256": "278739f9f3d0fa806bb66fa096c0aa46a2c7ebaaac91529874af8289935077ef"
+    },
+    {
+      "upload_order": 27,
+      "file": "panels/panel_027.png",
+      "attachment": "codex-clipboard-e9002fb6-cb29-4775-8371-8dc7a15b4a7d.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1465402,
+      "sha256": "7f8367b40142906d9327d0a3c540f59dab3be6828ab0b40c9cfdd91f02891528"
+    },
+    {
+      "upload_order": 28,
+      "file": "panels/panel_028.png",
+      "attachment": "codex-clipboard-fd4ca078-52f8-48c9-ac8d-6cc32f3b4642.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1268043,
+      "sha256": "c22848a75aeb1f77248b9276cff8c122098bddd95ffa20a79f19d3cece09bdd2"
+    },
+    {
+      "upload_order": 29,
+      "file": "panels/panel_029.png",
+      "attachment": "codex-clipboard-a7a5c0fb-d950-45df-8b86-2da1c93cca22.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 957576,
+      "sha256": "a6c497b6a674ea0a80b9ba92b822d63caaa2053135154105dbc17171975807e5"
+    },
+    {
+      "upload_order": 30,
+      "file": "panels/panel_030.png",
+      "attachment": "codex-clipboard-d2b2a549-2fe0-4eba-8599-0a2db5e03719.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 937637,
+      "sha256": "4ba6ef78bf9e3fbf17e703437f8af55764298199197ec7d289512275c43623ec"
+    },
+    {
+      "upload_order": 31,
+      "file": "panels/panel_031.png",
+      "attachment": "codex-clipboard-2e1802de-bd0b-4d75-a624-c9e12fbb9294.png",
+      "dimensions": [
+        960,
+        1378
+      ],
+      "bytes": 1508345,
+      "sha256": "5d6022d7b8d500761dcdb2a49c43a2637c476421808e4789592f7a4f4edc5670"
+    },
+    {
+      "upload_order": 32,
+      "file": "panels/panel_032.png",
+      "attachment": "codex-clipboard-3347cf5d-1e91-4fb5-8d7b-0ee1d58924d7.png",
+      "dimensions": [
+        1920,
+        1378
+      ],
+      "bytes": 3832918,
+      "sha256": "b46469ce2df1d26eaaf497914252f28812acf5da73e63059c0613c8cbdaa0f42"
+    }
+  ]
+}
