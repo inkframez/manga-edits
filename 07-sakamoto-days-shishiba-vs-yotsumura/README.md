@@ -58,6 +58,38 @@ faster camera arrivals, more varied framing, a disguise reveal, original audio,
 and a complete-spread ending. Its renderer and timing map are separate from the
 earlier layer preview.
 
+## Full Short — `sakamoto-days-short.mp4`
+
+The complete fight edit: **32.4 s, 1080 × 1920, 30 fps**, H.264 + AAC, with an original 170 BPM jazz-funk
+score. It covers the chapter in reading order: VS card, rooftop (BABAM), the roofs, the crash down the shaft,
+BAM BAM down the facade, "killing is like house-cleaning", the dark Channel of Rebirth, SHING, the clash spread
+as three beat-locked collisions, the Noh audience, KRASH, the leap, the disguise and reveal, "choosing my
+family", the hammer as a mirror, 0.7 s of silence, the finishing blow, "...a reason to kill you", title.
+
+The extracted layers are animated as puppets: anticipation, lunge with smear and afterimages, a hit-stop on
+contact, a damped recoil and a settle. Ink droplets, sparks, debris and impact stars sit behind or around
+the fighters, and the camera punches on contact and widens as they separate. Look: ink, paper, hazard yellow;
+sticker rims on cut-outs; panel break-outs. [LESSON.md](LESSON.md) explains why the 9-second version fell
+flat and how to animate extracted characters and score them.
+
+| File | Purpose |
+|---|---|
+| `video/timeline_short.py` | Beats, cuts, contact hits (with strength) and hit-stop lengths, shared by score and picture |
+| `video/music_short.py` | Generates `video/score_short.wav` |
+| `video/render_short.py` | Renders stills, a contact sheet or the final MP4 |
+| `contact-sheet-short.jpg`, `cover-short.jpg` | One frame per second; thumbnail (the reveal) |
+
+```bash
+cd video
+python music_short.py
+python render_short.py stills 1.8,10.3,23.4   # PNGs in video/stills_short/
+python render_short.py sheet 1                # contact sheet
+python render_short.py video                  # ../sakamoto-days-short.mp4 (about 3 min on 4 cores)
+```
+
+Verified: 972 frames at 1080 × 1920 / 30 fps, 32.40 s; audio −13.9 LUFS integrated, −1.0 dB peak
+(two-pass `loudnorm` at encode).
+
 ## Cloud handoff
 
 Upload this folder's `panels/`, `contact-sheet.jpg`, and `sources.json` together.
