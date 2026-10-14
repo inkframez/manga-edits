@@ -1,6 +1,6 @@
 # Romance edits: notes for GPT
 
-`fragrant-flower-short.mp4` is built by `video/render_ff.py`, `video/music_ff.py` and `video/timeline_ff.py`.
+`fragrant-flower-short.mp4` is built by `video/render_ff.py`, `video/analyze_song.py` and `video/timeline_ff.py`.
 The fight edits (Kagurabachi, Sakamoto Days) are about impact. A romance edit is about **breath**: the
 viewer has to feel time slow down. The same machinery gets used in nearly opposite ways.
 
@@ -30,22 +30,33 @@ viewer has to feel time slow down. The same machinery gets used in nearly opposi
 - **Typography:** one italic serif, centred, on a shared baseline (use the font's ascent, not each word's
   bounding box, or the words jump). It needs a soft dark glow for legibility over bright art.
 
-## 3. Sound rules
-- **The genre is the instrument.** A modelled felt piano (stretched partials, three detuned strings, felt
-  hammer, pedal), a soft lofi beat (round kick, finger snap, swung shaker), strings for the swell, celesta
-  once the snow starts, vinyl crackle and wind.
-- **Harmony carries the story.** The J-pop "royal road" (IV–V–iii–vi) never lands on the tonic, so it sounds
-  like longing. The tonic chord (D) is withheld until the title, so the confession feels resolved.
-- **Arrange to the picture.** Piano alone for the fairy tale, the beat enters in the café, it thins when the
-  snow begins, strings come in for the realisation, the drums drop out for "I...", and the full swell lands on
-  "...like you". `timeline_ff.SECTIONS` drives the drum map, the chord voicings and the picture's beat pulse.
-- **Measure the mix.** Check the band energies and a spectrogram: the first pass was 13 dB dark above
-  2 kHz, and a low pan value produced NaNs. The fix was a brighter felt, a louder shaker, less bass, and a
-  gentle tilt EQ. Finish with two-pass `loudnorm` to −14 LUFS.
+## 3. Cutting to a real song
+The first version had an original score. The user replaced it with BEAUZ & JVNA – Crazy (NCS), which changes
+the job from composing to listening:
+- **Pick the excerpt by structure, not by time.** Map the song first (energy per second and a spectrogram):
+  intro, verse, build, chorus, pre-drop riser, drop, break. The story's turning point ("...like you") belongs on
+  the **drop**, and the edit ends in the piano break that follows it.
+- **Build the beat grid from the drop.** Autocorrelation gave 136 BPM, but the phase disagreed from section to
+  section (syncopated kicks, triplet hats). Anchoring the grid at the drop's downbeat and checking it against
+  snares in the chorus and the drop gave one grid that fits everywhere. Start the excerpt on a downbeat
+  (18 bars before the drop) so edit beat 0 is a downbeat.
+- **Find the words.** Transcribe 2–5 s overlapping windows (Whisper small.en via sherpa-onnx) to locate each
+  phrase to within about half a second, then snap the words to the eighth-note grid. Show short fragments,
+  not the whole lyric: one accent word per line (rose, larger), timed to its syllable.
+- **Put the story on the song's shape.** Verse: calm monologue. Chorus: the lyric fragments land on matching
+  shots ("when I'm next to you" over her leaning on him). Pre-drop: snow and the umbrella, then hold "I..."
+  through the riser and dip to dark on the last eighth. Drop: white bloom, the confession, then one cut per bar.
+- **Pulse to the real hits.** `analyze_song.py` detects kick and snare onsets in the excerpt. The picture
+  zoom-pulses on kicks (stronger in the drop) and flashes softly on drop snares.
+- **Verify sync by measurement.** Cross-correlate the rendered video's audio with the source song: it should
+  start exactly at the chosen offset, and the drop should land on the planned frame.
+- **Credit.** NCS tracks need their credit block in the description; the end card carries it too. Don't commit
+  the song itself to the repo.
 
 ## 4. Checklist
 - [ ] Does each scene have its own grade, and does the change of grade mark a change of feeling?
 - [ ] Is every typeset line on screen long enough to read twice, and on one baseline?
 - [ ] Are the drawn balloons readable on a phone (crop in until they are)?
 - [ ] Is there one moment of near silence before the line that matters?
-- [ ] Does the harmony resolve only when the story does?
+- [ ] Does the story's turning point land on the song's drop (or its biggest change)?
+- [ ] Is all text readable over bright art (plate behind it) and clear of the Shorts caption overlay?

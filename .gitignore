@@ -24,3 +24,7 @@ fonts/
 
 # layout grids used while picking panel crops
 **/video/_grid*.jpg
+
+# third-party songs are not redistributed here: each project's README says where to download them
+08-the-fragrant-flower-subaru-and-saku/video/crazy.mp3
+08-the-fragrant-flower-subaru-and-saku/video/song_cut.wav

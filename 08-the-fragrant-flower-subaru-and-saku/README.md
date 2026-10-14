@@ -18,29 +18,43 @@ layer extraction, audio, or video has been applied.
 
 ## Short — `fragrant-flower-short.mp4`
 
-A **47-second romance edit** (1080 × 1920, 30 fps, H.264 + AAC) of Subaru's realisation and the snowy
-confession: the fairy tale that never fit her, the café where she can fall asleep beside him, "this sense of
-peace... is the shape of my love", "Do you... like him?", December 29th, the umbrella, "I..." and
-"...like you, Natsusawa-kun.", then the title.
+A **52.7-second romance edit** (1080 × 1920, 30 fps, H.264 + AAC) of Subaru's realisation and the snowy
+confession, cut to **BEAUZ & JVNA – Crazy [NCS Release]** (0:34.3–1:27.0 of the song, 136 BPM).
 
-- **Score** (`video/music_ff.py` → `video/score_ff.wav`): an original piano / lofi ballad, 80 BPM in D major,
-  on the J-pop "royal road" progression (IV–V–iii–vi). It has a modelled felt piano, a soft lofi beat, a
-  string swell, celesta snow chimes, vinyl crackle and winter wind. It goes near-silent for "I...", swells on
-  "...like you", and resolves to the home chord only on the title.
-- **Picture** (`video/render_ff.py`): slow eased cameras; a duotone grade for each scene (warm café, dusk car,
-  faded memory, blue snow, rose confession); bloom, light leaks, bokeh and grain; snow in three depth layers;
-  a slow "living" displacement of the art, with wind in her hair in the last close-up. Her inner monologue is
-  typeset word by word in an italic serif. The drawn dialogue balloons are untouched.
-- `video/timeline_ff.py` holds the sections, chords, drum map and cuts, shared by both scripts.
-  [`LESSON.md`](LESSON.md) explains how a romance edit differs from the fight edits.
+| Edit | Song | Picture |
+|---|---|---|
+| 0:00–0:10.6 | end of verse 1 | the fairy tale, Subaru reading, the café (her monologue typeset) |
+| 0:10.6–0:24.7 | chorus | the nap, "still in love with you" on her realisation, the shape of her love, "when I'm next to you" on the lean, the car, her tears |
+| 0:24.7–0:31.8 | pre-drop | December 29th, the umbrella, "...a cold!", then "I..." held through the riser |
+| 0:31.8 | **the drop** | white bloom; "...like you, Natsusawa-kun." |
+| 0:31.8–0:47.6 | drop | her close-up, then a cut on every bar: his face, her tears, "hurting you", "understood my own feelings", two faces, "show me that face", the couple |
+| 0:47.6–0:52.7 | piano break | title and credits |
+
+- **Sync:** the drop is edit beat 72 on a 136 BPM grid anchored at the song's drop (1:06.04). The video's
+  audio was cross-correlated against the song: it starts exactly at 0:34.275 and the drop lands at 0:31.77.
+  Zoom pulses and drop flashes follow the song's real kick and snare hits (`video/beatmap_ff.json`).
+- **Lyrics:** three short fragments ("so crazy", "still in love with you", "when I'm next to you") appear word
+  by word on the sung syllables. Their timing comes from transcribing the vocal in short windows. Only these
+  fragments are shown, not the full lyric.
+- **Text:** every line sits on a soft dark plate and stays out of the bottom of the frame, where the Shorts
+  caption overlay goes.
+
+### Music credit
+Song: BEAUZ & JVNA - Crazy [NCS Release]
+Music provided by NoCopyrightSounds
+Free Download/Stream: http://ncs.io/_Crazy
+Watch: http://youtu.be/xgcLwtGlgLU
+
+The end card carries the credit too. The song is not stored in this repo: download it from the link above and
+save it as `video/crazy.mp3` to re-render.
 
 ```bash
 cd video
-python music_ff.py                  # about 1 min
-python render_ff.py stills 2,15,37  # PNGs in video/stills_ff/
+python analyze_song.py              # cuts video/song_cut.wav and writes beatmap_ff.json
+python render_ff.py stills 4,14,32  # PNGs in video/stills_ff/
 python render_ff.py sheet 1         # contact sheet
 python render_ff.py video           # ../fragrant-flower-short.mp4 (about 4 min on 4 cores)
 ```
 
-Verified: 1,410 frames at 1080 × 1920 / 30 fps, 47.0 s; audio −13.7 LUFS integrated, −1.2 dB peak.
-`contact-sheet.jpg` shows one frame per second; `cover.jpg` is the close-up at 0:40.
+Verified: 1,581 frames at 1080 × 1920 / 30 fps, 52.7 s; audio −14.0 LUFS integrated.
+`contact-sheet.jpg` shows one frame per second; `cover.jpg` is the close-up after the drop.

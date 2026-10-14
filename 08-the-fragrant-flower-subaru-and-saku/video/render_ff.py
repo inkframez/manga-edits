@@ -11,7 +11,7 @@ A romance edit is built from different tools than a fight edit:
 Picture and score share timeline_ff.py (80 BPM). The beat pulse is a 0.6 % breath, not a punch.
 
 Usage (from this folder):
-  python music_ff.py                         -> score_ff.wav
+  python analyze_song.py                     -> song_cut.wav + beatmap_ff.json (needs video/crazy.mp3)
   python render_ff.py stills 2,15,37         -> stills_ff/*.png
   python render_ff.py sheet 1                -> stills_ff/sheet.jpg
   python render_ff.py video [--workers 3]    -> ../fragrant-flower-short.mp4
@@ -23,7 +23,7 @@ import numpy as np
 import cv2
 from PIL import Image, ImageDraw, ImageFont
 import imageio_ffmpeg
-from timeline_ff import BEAT, FPS, NB, DUR, drum_hits, section_at, b
+from timeline_ff import BEAT, FPS, NB, DUR, DROP, LYRICS, section_at, b
 
 cv2.setNumThreads(1)
 HERE = Path(__file__).resolve().parent
@@ -35,8 +35,9 @@ JP = FD + 'NotoSerifJP-M.ttf'
 W, H = 1080, 1920
 NF = int(round(DUR * FPS))
 OUT = ROOT / 'fragrant-flower-short.mp4'
-AUDIO = HERE / 'score_ff.wav'
-KICKS, _ = drum_hits()
+AUDIO = HERE / 'song_cut.wav'        # analyze_song.py: the excerpt of BEAUZ & JVNA - Crazy [NCS Release]
+_BM = json.load(open(HERE / 'beatmap_ff.json')) if (HERE / 'beatmap_ff.json').exists() else {'kicks': [], 'snares': []}
+KICKS, SNARES = _BM['kicks'], _BM['snares']
 
 
 def hexc(h): return np.array([int(h[i:i + 2], 16) / 255 for i in (1, 3, 5)], np.float32)
@@ -242,6 +243,14 @@ def word_mask(word, font, size):
     return np.asarray(im, np.float32) / 255, asc      # every word shares the font's ascent: one baseline
 
 
+@lru_cache(maxsize=64)
+def plate_mask(y0, h):
+    """A soft full-width dark band behind text, so it reads over any art."""
+    m = np.zeros((H, 1), np.float32); m[max(0, y0):min(H, y0 + h)] = 1
+    m = cv2.GaussianBlur(m, (0, 0), 38)
+    return np.repeat(np.clip(m * 1.15, 0, 1), W, 1)
+
+
 def paste_mask(img, m, x, y, col, a):
     x, y = int(round(x)), int(round(y)); h, w = m.shape
     x0, y0, x1, y1 = max(0, x), max(0, y), min(W, x + w), min(H, y + h)
@@ -250,11 +259,17 @@ def paste_mask(img, m, x, y, col, a):
     img[y0:y1, x0:x1] = img[y0:y1, x0:x1] * (1 - mm) + np.asarray(col) * mm
 
 
-def verse(img, lines, t0, t, y, size=74, font=SERIF_I, col=CREAM, align='center', per_word=.16, out_at=None, x=None):
+def verse(img, lines, t0, t, y, size=74, font=SERIF_I, col=CREAM, align='center', per_word=.16, out_at=None, x=None,
+          plate=True):
     """Lines of text revealed word by word: each word rises 16 px, sharpens from a blur and fades in."""
     fade = 1.0 if out_at is None else 1 - eio((t - out_at) / .45)
     if fade <= 0: return
     space = size * .28; lh = size * 1.22; k = 0
+    if plate and t >= t0:
+        a = eout((t - t0) / .5) * fade
+        widths = [sum(word_mask(wd, font, size)[0].shape[1] - 40 for wd in ln.split(' ')) + space * (len(ln.split(' ')) - 1)
+                  for ln in lines]
+        img *= 1 - .8 * a * plate_mask(int(y - size * .35), int(lh * len(lines) + size * .7))[..., None]
     for li, line in enumerate(lines):
         words = line.split(' ')
         ms = [word_mask(wd, font, size) for wd in words]
@@ -276,16 +291,16 @@ def s_fairy(tl, u, t, bt):
     img = backdrop(1, (90, 0, 470, 340), 'warm', u, .4)
     band(img, 1, (95, 0, 470, 340), 820, u, t, 'warm', z=(1.08, 1.0), drift=(-30, 0))
     dust(img, t, .6)
-    verse(img, ['It was an out-of-reach'], b(.6), tl, 1300, size=84)
-    verse(img, ['fairy tale.'], b(1.8), tl, 1405, size=104)
+    verse(img, ['It was an out-of-reach'], b(.8), tl, 1230, size=84)
+    verse(img, ['fairy tale.'], b(3.0), tl, 1335, size=104, plate=False)
     return img
 
 
 def s_reading(tl, u, t, bt):
     img = full(2, (0, 90, 870, 1288), (540, 470, 980), (520, 500, 780), u, t, 'warm')
     dust(img, t)
-    verse(img, ['It never felt like it fit me,'], b(.4), tl, 1420, size=76)
-    verse(img, ['nor did I understand it.'], b(1.6), tl, 1515, size=76)
+    verse(img, ['It never felt like it fit me,'], b(.6), tl, 1250, size=76)
+    verse(img, ['nor did I understand it.'], b(3.0), tl, 1345, size=76, plate=False)
     return img
 
 
@@ -293,8 +308,8 @@ def s_cafe(tl, u, t, bt):
     img = backdrop(1, (90, 905, 870, 473), 'warm', u, .45)
     band(img, 1, (90, 905, 870, 473), 840, u, t, 'warm', z=(1.0, 1.08), drift=(60, 0))
     dust(img, t)
-    verse(img, ['But... it didn\'t have to'], b(.5), tl, 1290, size=84)
-    verse(img, ['fit me.'], b(1.7), tl, 1395, size=104)
+    verse(img, ['But... it didn\'t have to'], b(.6), tl, 1230, size=84)
+    verse(img, ['fit me.'], b(3.0), tl, 1335, size=104, plate=False)
     return img
 
 
@@ -304,87 +319,103 @@ def s_nap(tl, u, t, bt):
     return img
 
 
-def s_sip(tl, u, t, bt):
-    img = backdrop(10, (90, 0, 870, 1080), 'warm', u, .4)
-    band(img, 10, (90, 0, 870, 1080), 960, u, t, 'warm', z=(1.0, 1.07), drift=(0, 40))
-    dust(img, t)
-    return img
-
-
-def s_lean(tl, u, t, bt):
-    img = backdrop(14, (90, 900, 870, 478), 'warm', u, .42)
-    band(img, 14, (90, 900, 870, 478), 820, u, t, 'warm', z=(1.12, 1.0), drift=(-40, 0))
-    dust(img, t)
-    verse(img, ['My heart feels calm'], b(.3), tl, 1280, size=84)
-    verse(img, ['whenever I\'m with him.'], b(1.2), tl, 1380, size=84)
+def s_realize(tl, u, t, bt):
+    img = backdrop(12, (90, 945, 870, 433), 'dusk', u, .45)
+    band(img, 12, (90, 945, 870, 433), 860, u, t, 'dusk', z=(1.0, 1.12), drift=(0, -20))
+    bokeh(img, t, .8, (ROSE, CREAM, AMBER))
     return img
 
 
 def s_peace(tl, u, t, bt):
     img = backdrop(15, (400, 80, 470, 500), 'dusk', u, .45)
-    band(img, 15, (400, 80, 470, 500), 940, u, t, 'dusk', z=(1.0, 1.08), drift=(0, -30))
+    band(img, 15, (400, 80, 470, 500), 900, u, t, 'dusk', z=(1.0, 1.08), drift=(0, -30))
     bokeh(img, t, .8)
+    return img
+
+
+def s_lean(tl, u, t, bt):
+    img = backdrop(14, (90, 900, 870, 478), 'warm', u, .42)
+    band(img, 14, (90, 900, 870, 478), 760, u, t, 'warm', z=(1.12, 1.0), drift=(-40, 0))
+    dust(img, t)
     return img
 
 
 def s_car(tl, u, t, bt):
     img = backdrop(16, (90, 265, 870, 480), 'dusk', u, .45)
-    band(img, 16, (90, 265, 870, 480), 900, u, t, 'dusk', z=(1.0, 1.1), drift=(0, 0))
+    band(img, 16, (90, 265, 870, 480), 900, u, t, 'dusk', z=(1.0, 1.1))
     bokeh(img, t, 1.0)
     return img
 
 
-def s_memory(tl, u, t, bt):
-    img = backdrop(17, (0, 330, 870, 305), 'memory', u, .7)
-    band(img, 17, (0, 330, 870, 305), 940, u, t, 'memory', z=(1.12, 1.22), drift=(60, 0))
-    img = img * .9 + cv2.GaussianBlur(img, (0, 0), 14) * .15          # dreamy halation
-    return leak(img, t, .2)
+def s_tears(tl, u, t, bt):
+    img = full(18, (0, 0, 870, 1040), (500, 560, 1040), (500, 520, 760), u, t, 'dusk')
+    bokeh(img, t, .9, (ROSE, CREAM, AMBER))
+    return img
 
 
 def s_dec(tl, u, t, bt):
     img = backdrop(21, (240, 965, 470, 413), 'snow', u, .5)
     band(img, 21, (240, 965, 470, 413), 760, u, t, 'snow', z=(1.0, 1.08), drift=(0, -20))
-    snow(img, t, .8 * eio(tl / .8))
-    verse(img, ['December 29th.'], b(.3), tl, 1340, size=84)
-    verse(img, ['the final day of this year\'s winter classes'], b(.9), tl, 1430, size=48)
+    snow(img, t, eio(tl / .6))
+    verse(img, ['December 29th.'], b(.3), tl, 1260, size=84, per_word=.1)
     return img
 
 
-def s_street(tl, u, t, bt):
-    img = backdrop(23, (0, 910, 870, 468), 'snow', u, .45)
-    band(img, 23, (0, 635, 870, 235), 600, u, t, 'snow', z=(1.0, 1.06), drift=(-30, 0))
-    if tl > b(.8):
-        a = eio((tl - b(.8)) / .4)
-        band(img, 23, (0, 910, 870, 468), 1250, u, t, 'snow', z=(1.0, 1.05), a=a)
-    snow(img, t)
-    return img
-
-
-def s_umbrella(tl, u, t, bt, pulse=1.0):
-    img = full(24, (90, 0, 870, 1080), (600, 560, 1080), (585, 520, 940), u, t, 'snow', pulse=pulse)
+def s_umbrella(tl, u, t, bt):
+    img = full(24, (90, 0, 870, 1080), (600, 560, 1080), (585, 520, 940), u, t, 'snow')
     snow(img, t)
     bokeh(img, t, .5, (CREAM, hexc('#BFD8FF')))
     return img
 
 
-def s_cold(tl, u, t, bt, pulse=1.0):
+def s_cold(tl, u, t, bt):
     img = backdrop(27, (0, 0, 870, 770), 'snow', u, .45)
-    band(img, 27, (0, 0, 870, 770), 930, u, t, 'snow', z=(1.0, 1.06), drift=(0, 30), pulse=pulse)
+    band(img, 27, (0, 0, 870, 770), 930, u, t, 'snow', z=(1.0, 1.06), drift=(0, 30))
     snow(img, t)
     return img
 
 
-def s_her(tl, u, t, bt, pulse=1.0):
-    img = full(26, (90, 0, 870, 733), (520, 400, 733), (500, 340, 600), u, t, 'snow', pulse=pulse)
+def s_i(tl, u, t, bt):
+    """The riser: hold on "I..." while the camera creeps in and the light rises; dip to black on the last 8th."""
+    img = full(32, (0, 0, 715, 1378), (480, 300, 600), (470, 290, 470), u, t, 'rose', e=ein)
+    snow(img, t * .6, 1.0, (0, 1))
+    img = img * (.75 + .4 * ein(u, 2))
+    if bt > DROP - .5: img *= 1 - eio((bt - (DROP - .5)) / .5) * .9
+    return img
+
+
+def s_likeyou(tl, u, t, bt):
+    img = full(32, (0, 0, 715, 1378), (470, 290, 520), (350, 660, 1300), u, t, 'rose', e=eio2)
+    snow(img, t)
+    bokeh(img, t, .9, (ROSE, CREAM, AMBER))
+    return leak(img, t, .3 * (1 - u))
+
+
+def s_face(tl, u, t, bt):
+    img = full(32, (740, 0, 1180, 1378), (1380, 700, 1378), (1390, 600, 980), u, t, 'rose', hair=(.42, 7.0))
+    snow(img, t)
+    bokeh(img, t, .6, (ROSE, CREAM))
+    return img
+
+
+def s_his(tl, u, t, bt):
+    img = backdrop(26, (90, 770, 870, 360), 'snow', u, .45)
+    band(img, 26, (90, 770, 870, 360), 960, u, t, 'snow', z=(1.15, 1.3))
+    snow(img, t)
+    return img
+
+
+def s_her(tl, u, t, bt):
+    img = full(26, (90, 0, 870, 733), (520, 400, 733), (500, 340, 600), u, t, 'rose')
     snow(img, t, 1.0, (1, 2))
     return img
 
 
-def s_hurt(tl, u, t, bt, pulse=1.0):
+def s_hurt(tl, u, t, bt):
     img = backdrop(29, (0, 688, 870, 365), 'snow', u, .45)
-    band(img, 29, (0, 688, 870, 365), 640, u, t, 'snow', z=(1.0, 1.05), pulse=pulse)
-    if tl > b(1):
-        band(img, 29, (0, 1090, 870, 288), 1250, u, t, 'snow', z=(1.0, 1.05), a=eio((tl - b(1)) / .4))
+    band(img, 29, (0, 688, 870, 365), 640, u, t, 'snow', z=(1.0, 1.05))
+    if tl > b(1.5):
+        band(img, 29, (0, 1090, 870, 288), 1250, u, t, 'snow', z=(1.0, 1.05), a=eio((tl - b(1.5)) / .3))
     snow(img, t, .9)
     return img
 
@@ -396,23 +427,26 @@ def s_understood(tl, u, t, bt):
     return img
 
 
-def s_i(tl, u, t, bt):
-    img = full(32, (0, 0, 715, 1378), (480, 300, 560), (470, 290, 520), u, t, 'rose')
-    snow(img, t * .6, 1.0, (0, 1))
+def s_two(tl, u, t, bt):
+    img = backdrop(31, (0, 628, 870, 530), 'rose', u, .45)
+    band(img, 31, (0, 628, 485, 530), 560, u, t, 'rose', z=(1.0, 1.06), maxh=880)
+    if tl > b(1):
+        band(img, 31, (500, 628, 370, 530), 1380, u, t, 'rose', z=(1.0, 1.06), maxh=880, a=eio((tl - b(1)) / .3))
+    snow(img, t, .8)
     return img
 
 
-def s_likeyou(tl, u, t, bt):
-    img = full(32, (0, 0, 715, 1378), (470, 290, 520), (350, 660, 1300), u, t, 'rose', e=eio2)
+def s_showface(tl, u, t, bt):
+    img = backdrop(28, (90, 230, 870, 612), 'snow', u, .45)
+    band(img, 28, (90, 230, 870, 612), 930, u, t, 'snow', z=(1.0, 1.08))
     snow(img, t)
-    bokeh(img, t, .9, (ROSE, CREAM, AMBER))
-    return leak(img, t, .25 * (1 - u))
+    return img
 
 
-def s_face(tl, u, t, bt):
-    img = full(32, (740, 0, 1180, 1378), (1380, 700, 1378), (1390, 600, 980), u, t, 'rose', hair=(.42, 7.0))
+def s_couple(tl, u, t, bt):
+    img = full(32, (0, 0, 715, 1378), (420, 1000, 700), (360, 700, 1378), u, t, 'rose')
     snow(img, t)
-    bokeh(img, t, .6, (ROSE, CREAM))
+    bokeh(img, t, .8, (ROSE, CREAM, AMBER))
     return img
 
 
@@ -422,37 +456,63 @@ def s_title(tl, u, t, bt):
     img = grade(L, 'rose') * .42
     bokeh(img, t, 1.0, (ROSE, CREAM, AMBER))
     snow(img, t)
-    verse(img, ['薫る花は凛と咲く'], b(.2), tl, 380, size=58, font=JP, per_word=0)
-    verse(img, ['The Fragrant Flower'], b(.6), tl, 740, size=112, font=SERIF, per_word=.12)
-    verse(img, ['Blooms with Dignity'], b(1.0), tl, 870, size=112, font=SERIF, per_word=.12)
-    verse(img, ['Chapter 204  ·  Subaru and Saku'], b(1.8), tl, 1040, size=58)
-    verse(img, ['Saka Mikami / Kodansha'], b(2.6), tl, 1440, size=40, col=CREAM * .8)
-    verse(img, ['@inkframez'], b(3.0), tl, 1500, size=46, col=ROSE)
+    verse(img, ['薫る花は凛と咲く'], b(.3), tl, 360, size=58, font=JP, per_word=0, plate=False)
+    verse(img, ['The Fragrant Flower'], b(1), tl, 700, size=112, font=SERIF, per_word=.12, plate=False)
+    verse(img, ['Blooms with Dignity'], b(2), tl, 830, size=112, font=SERIF, per_word=.12, plate=False)
+    verse(img, ['Chapter 204  ·  Subaru and Saku'], b(3.5), tl, 1000, size=58, plate=False)
+    verse(img, ['Saka Mikami / Kodansha'], b(5), tl, 1330, size=40, col=CREAM * .85, plate=False)
+    verse(img, ['Music: BEAUZ & JVNA - Crazy [NCS Release]'], b(6), tl, 1395, size=40, col=CREAM * .85, plate=False)
+    verse(img, ['Music provided by NoCopyrightSounds'], b(6.5), tl, 1450, size=40, col=CREAM * .85, plate=False)
+    verse(img, ['@inkframez'], b(7.5), tl, 1530, size=48, col=ROSE, plate=False)
     return img
 
 
-# (start beat, end beat, function, entering transition, transition beats, beat pulse?)
+# Lyric fragments: an upright serif, word by word on the sung syllable, the accent word in rose and larger.
+def lyrics(img, bt):
+    for b0, words, b1, accent, base in LYRICS:
+        if not (b0 <= bt < b1 + .6): continue
+        fade = 1 - eio((bt - b1) / .6) if bt > b1 else 1.0
+        sizes = [132 if w == accent else 92 for w, _ in words]
+        ms = [word_mask(w, SERIF, sz)[0] for (w, _), sz in zip(words, sizes)]
+        space = 26; total = sum(m.shape[1] - 40 for m in ms) + space * (len(ms) - 1)
+        x = (W - total) / 2
+        img *= 1 - .8 * fade * eout((bt - b0) / .8) * plate_mask(base - 90, 180)[..., None]
+        for (w, wb), mm, sz in zip(words, ms, sizes):
+            u = (bt - wb) / .9
+            if u > 0:
+                e = eout(u); col = hexc('#FFC2D1') if w == accent else CREAM
+                y = base - mm.shape[0] / 2 - (sz - 92) * .35 + 14 * (1 - e)
+                mb = mm if e > .97 else cv2.GaussianBlur(mm, (0, 0), .2 + 4 * (1 - e))
+                paste_mask(img, cv2.GaussianBlur(mm, (0, 0), 8), x - 20 + 3, y + 4, (0, 0, 0), .6 * e * fade)
+                paste_mask(img, mb, x - 20, y, col, e * fade)
+            x += mm.shape[1] - 40 + space
+
+
+# (start beat, end beat, function, entering transition, transition beats)
 SHOTS = [
-    (0, 4, s_fairy, 'black', 1.2, False),
-    (4, 8, s_reading, 'dissolve', .8, False),
-    (8, 12, s_cafe, 'leak', .8, True),
-    (12, 16, s_nap, 'dissolve', .7, True),
-    (16, 20, s_sip, 'dissolve', .7, True),
-    (20, 23, s_lean, 'dissolve', .7, True),
-    (23, 26, s_peace, 'leak', .9, True),
-    (26, 28, s_car, 'dissolve', .6, True),
-    (28, 30, s_memory, 'dissolve', .6, False),
-    (30, 32, s_dec, 'dissolve', .8, False),
-    (32, 34, s_street, 'leak', .6, True),
-    (34, 38, s_umbrella, 'dissolve', .5, True),
-    (38, 40, s_cold, 'cut', 0, True),
-    (40, 42, s_her, 'dissolve', .5, True),
-    (42, 44, s_hurt, 'dissolve', .5, True),
-    (44, 46, s_understood, 'dissolve', .6, False),
-    (46, 48, s_i, 'black', .9, False),
-    (48, 50, s_likeyou, 'white', .8, False),
-    (50, 56, s_face, 'dissolve', .9, False),
-    (56, NB + 3, s_title, 'leak', 1.4, False),
+    (0, 8, s_fairy, 'black', 1.0),
+    (8, 16, s_reading, 'dissolve', 1.0),
+    (16, 24, s_cafe, 'leak', 1.0),
+    (24, 30, s_nap, 'dissolve', .8),
+    (30, 36, s_realize, 'leak', .8),
+    (36, 40, s_peace, 'dissolve', .6),
+    (40, 46, s_lean, 'dissolve', .6),
+    (46, 50, s_car, 'dissolve', .6),
+    (50, 56, s_tears, 'dissolve', .6),
+    (56, 60, s_dec, 'leak', .8),
+    (60, 64, s_umbrella, 'dissolve', .5),
+    (64, 67, s_cold, 'cut', 0),
+    (67, 72, s_i, 'black', .6),
+    (72, 76, s_likeyou, 'white', 1.0),
+    (76, 84, s_face, 'dissolve', .6),
+    (84, 86, s_his, 'cut', 0),
+    (86, 88, s_her, 'cut', 0),
+    (88, 92, s_hurt, 'cut', 0),
+    (92, 96, s_understood, 'cut', 0),
+    (96, 100, s_two, 'cut', 0),
+    (100, 104, s_showface, 'cut', 0),
+    (104, 108, s_couple, 'dissolve', .5),
+    (108, NB + 3, s_title, 'leak', 1.5),
 ]
 
 
@@ -462,17 +522,22 @@ def shot_at(bt):
     return len(SHOTS) - 1
 
 
+PULSE = {'verse': .0, 'chorus': .008, 'build': .004, 'drop': .02, 'end': .006}
+
+
 def pulse_at(t):
-    return 1 + sum(.006 * math.exp(-(t - b(k)) * 7) for k in KICKS if 0 <= t - b(k) < .6)
+    amt = PULSE[section_at(t / BEAT)[2]]
+    if not amt: return 1.0
+    return 1 + sum(amt * math.exp(-(t - k) * 9) for k in KICKS if 0 <= t - k < .45)
+
+
+def flash_at(t):
+    if section_at(t / BEAT)[2] != 'drop': return 0.0
+    return sum(.06 * math.exp(-(t - k) * 14) for k in SNARES if 0 <= t - k < .3)
 
 
 def draw(i, t):
     s = SHOTS[i]; tl = t - b(s[0]); u = tl / b(s[1] - s[0])
-    if s[5]:
-        try: return s[2](tl, u, t, t / BEAT, pulse=pulse_at(t))
-        except TypeError:
-            img = s[2](tl, u, t, t / BEAT); p = pulse_at(t)
-            return img if p < 1.001 else cv2.warpAffine(img, cv2.getRotationMatrix2D((W / 2, H / 2), 0, p), (W, H), borderMode=cv2.BORDER_REFLECT)
     return s[2](tl, u, t, t / BEAT)
 
 
@@ -499,6 +564,11 @@ def transition(i, t, img):
 def frame(fi):
     t = fi / FPS; bt = t / BEAT; i = shot_at(bt)
     img = transition(i, t, draw(i, t))
+    p = pulse_at(t)
+    if p > 1.001: img = cv2.warpAffine(img, cv2.getRotationMatrix2D((W / 2, H / 2), 0, p), (W, H), borderMode=cv2.BORDER_REFLECT)
+    f = flash_at(t)
+    if f > .005: img = img + f * CREAM
+    lyrics(img, bt)
     img = img * VIG + GRAIN[fi % 4]
     if t < .4: img *= t / .4
     if fi > NF - 18: img *= (NF - fi) / 18
@@ -542,7 +612,7 @@ def loudnorm_filter(ff):
 def video(workers, out=OUT):
     from multiprocessing import Pool
     ff = imageio_ffmpeg.get_ffmpeg_exe()
-    if not AUDIO.exists(): sys.exit('run music_ff.py first')
+    if not AUDIO.exists(): sys.exit('run analyze_song.py first')
     af = loudnorm_filter(ff)
     cmd = [ff, '-y', '-hide_banner', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}',
            '-r', str(FPS), '-i', '-', '-i', str(AUDIO), '-af', af + ',aresample=48000', '-map', '0:v', '-map', '1:a',
