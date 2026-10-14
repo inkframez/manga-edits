@@ -13,7 +13,7 @@ to use a layer pack like `layers.json` so the characters actually fight.
 | Paper-coloured voids around small art; amber limited to a 1 px glint. | Low contrast and an accent nobody notices make the phone screen look empty and grey. | **Hazard yellow fields**, ink fields and full-bleed pages. One accent, used at full strength: names, rims, impact stars, sparks, afterimages. |
 | 9 seconds of one rooftop hit, a reflection and an ending. | No story: the chapter's beats (descent, passage, spread, Noh stage, disguise, mirror, finish) never appear. | 32 s covering the chapter in order, with a VS card, 25 cuts, 17 contact hits and 3 lines of dialogue chosen for meaning. |
 | Typography labels ("CLASH", "SHIFT", "REFLECT."). | Telling the viewer what they're seeing. | Our own type only names the fighters, frames the twist ("THE HAMMER IS A MIRROR.") and carries one line ("BUT I'VE HAD ENOUGH."). Yuto Suzuki's drawn SFX stay as lettered and are never duplicated. |
-| Generic 160 BPM bed under 9 s of picture. | The music isn't about anything in particular. | 170 BPM jazz-funk two-step for a stylish hitman fight, with tsuzumi drum and flute for the Noh stage. Every contact has a clang, a sub thump and a brass stab on the exact frame. |
+| Generic 160 BPM bed under 9 s of picture. | The music isn't about anything in particular. | 170 BPM phonk (cowbell hook, gliding 808, clap, trap hats) arranged to the story, with tsuzumi and flute for the Noh stage. The picture zoom-bumps on every kick the score plays. |
 
 ## 2. How to animate a cut-out (it's a puppet, not a sticker)
 
@@ -50,24 +50,28 @@ they're apart and goes tight on contact, so both faces stay in frame.
 - **Props can spin.** `hammer_flying` rotates 720° and scales 3× toward the lens. The reflection embedded in the
   metal comes along, so the twist stays readable.
 
-## 3. Sound: build the score from the picture's timeline
+## 3. Sound: phonk, built from the picture's timeline
 
-- **One timing file.** `timeline_short.py` holds BPM, cuts, hits (with strength) and hit-stop lengths, and both
-  `music_short.py` and `render_short.py` import it. A hit moved there moves the clang, the stab, the freeze and
-  the shake together.
-- **Every contact has three layers:** a metal transient (`clang`), a low thump (45 Hz sine plus a kick for
-  strength 2+) and a musical answer (a brass `stab` on the current chord). The clang tells you what hit, the thump
-  tells you how hard, and the stab makes it part of the music.
-- **Swish into every cut.** A filtered-noise whoosh ends exactly on the cut frame (`CUTS`).
-- **Arrange for the story, not a loop.** Name-card stabs and a snare roll, the drop on the first clash, half-time
-  in the dark passage, drums out for the Noh audience (tsuzumi and flute), KRASH brings the band back, a low-pass
-  under the mirror, a snare roll under the spinning hammer, **0.7 s of near-silence**, then the loudest moment of
-  the track, then Rhodes under the last line.
-- **Pick a genre that fits the property.** Sakamoto Days is stylish hitman action, so jazz-funk: slap bass riff on
-  Em9 – A13 – Cmaj9 – B7♯9, brass stabs, Rhodes and a two-step break. Kagurabachi got a Japanese-scale score
-  instead; the same machinery makes different music.
-- **Mix for phones.** Sidechain the bass and pads to the kick, keep the sub under control, finish with two-pass
-  `loudnorm` to −14 LUFS / −1.5 dBTP.
+The first pass used jazz-funk and the user rejected it. It sounded busy and thin, and it isn't what manga or anime
+edit audiences expect. The score is now **phonk**, the house sound of edits on Shorts and TikTok:
+
+- **The hook is an 808 cowbell.** Two band-limited square waves about a fifth apart (the TR-808 recipe), playing
+  an E-phrygian riff with lots of reverb. It's the most recognisable part, so it gets the most level.
+- **The 808 slides.** A sine with a pitch punch, a glide into the next bar's root, hard saturation, and a short
+  kick layered on top so each hit punches instead of droning. Keep it mono.
+- **Clap on the backbeat, rolling hats.** 8ths with a trap roll every second bar in the half-time drops, and
+  16ths in the double-time sections (the clash, the final blow).
+- **Song form follows the story.** `timeline_short.SECTIONS` says intro, drop, break (dark passage), drop2
+  (clash), noh (tsuzumi and flute), drop, build (mirror and hammer: filter opens, snare roll accelerates),
+  silence (0.7 s), drop2 (the blow), soft (the last line), drop (title). The arrangement is written from that list.
+- **Picture and sound share the drum map.** `drum_hits()` generates every kick and clap. The score plays them,
+  and the renderer **zoom-bumps on every kick and jolts or flashes on every clap**, so the picture pulses with
+  the music you hear. Contacts in `HITS` add a clang and a clap; the three biggest also get a two-frame
+  inverted **impact frame** with yellow focus lines, the anime "sakuga" flash.
+- **Mix for phones.** Measure it, don't guess. The first phonk mix had the sub 12 dB over the hook and the 808
+  as a flat wall with no transients. Fix with per-band energy and a spectrogram: shorter 808 decay, a punch
+  kick on top, the hook and reverb up, and the kick ducking the melodic buses. Finish with two-pass `loudnorm`
+  to −14 LUFS / −1.5 dBTP.
 
 ## 4. Checklist before calling an edit done
 
@@ -78,4 +82,5 @@ they're apart and goes tight on contact, so both faces stay in frame.
 - [ ] Does the camera react to the action (punch on contact, breathe with distance)?
 - [ ] Is any frame held for more than half a second with nothing changing? If so, cut it or move it.
 - [ ] Are the drawn SFX kept and never duplicated by our own type?
-- [ ] Do picture and score import the same timeline?
+- [ ] Do picture and score import the same timeline, and does the picture pulse on the kicks?
+- [ ] Is the hook the loudest melodic element, with the 808 punching instead of droning? Check a spectrogram.

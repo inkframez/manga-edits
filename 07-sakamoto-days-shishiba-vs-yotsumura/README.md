@@ -60,8 +60,8 @@ earlier layer preview.
 
 ## Full Short — `sakamoto-days-short.mp4`
 
-The complete fight edit: **32.4 s, 1080 × 1920, 30 fps**, H.264 + AAC, with an original 170 BPM jazz-funk
-score. It covers the chapter in reading order: VS card, rooftop (BABAM), the roofs, the crash down the shaft,
+The complete fight edit: **32.4 s, 1080 × 1920, 30 fps**, H.264 + AAC, with an original 170 BPM phonk
+score (808 cowbell hook, gliding 808, clap, trap hats). It covers the chapter in reading order: VS card, rooftop (BABAM), the roofs, the crash down the shaft,
 BAM BAM down the facade, "killing is like house-cleaning", the dark Channel of Rebirth, SHING, the clash spread
 as three beat-locked collisions, the Noh audience, KRASH, the leap, the disguise and reveal, "choosing my
 family", the hammer as a mirror, 0.7 s of silence, the finishing blow, "...a reason to kill you", title.
@@ -87,7 +87,7 @@ python render_short.py sheet 1                # contact sheet
 python render_short.py video                  # ../sakamoto-days-short.mp4 (about 3 min on 4 cores)
 ```
 
-Verified: 972 frames at 1080 × 1920 / 30 fps, 32.40 s; audio −13.9 LUFS integrated, −1.0 dB peak
+Verified: 972 frames at 1080 × 1920 / 30 fps, 32.40 s; audio −14.0 LUFS integrated, −2.5 dB peak
 (two-pass `loudnorm` at encode).
 
 ## Cloud handoff

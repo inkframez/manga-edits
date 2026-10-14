@@ -22,7 +22,8 @@ import numpy as np
 import cv2
 from PIL import Image, ImageDraw, ImageFont
 import imageio_ffmpeg
-from timeline_short import BEAT, FPS, NB, DUR, HITS, HITSTOP, b
+from timeline_short import BEAT, FPS, NB, DUR, HITS, HITSTOP, drum_hits, b
+KICKS, CLAPS = drum_hits()
 
 cv2.setNumThreads(1)
 HERE = Path(__file__).resolve().parent
@@ -364,6 +365,9 @@ def shards(dst, x0, y0, t, seed, n=16, col=None):
     paste(dst, INK if col is None else np.asarray(col), 0, 0, m.astype(np.float32) / 255)
 
 
+def lum(img): return img @ np.float32([.3, .59, .11])
+
+
 def shift(img, dx, dy, fill=0.0):
     return cv2.warpAffine(img, np.float32([[1, 0, dx], [0, 1, dy]]), (W, H), borderMode=cv2.BORDER_CONSTANT,
                           borderValue=(fill, fill, fill))
@@ -427,7 +431,7 @@ def s_rooftop(tl, u, bt):
     img = field(PAPER)
     hb = 5.0; dt = since_hit(bt, hb)
     pre = clamp((bt - 4) / (hb - 4))                           # 0..1 wind-up -> contact
-    lunge = ein(pre, 3) if bt < hb else 1.0
+    lunge = ein(pre, 4.5) if bt < hb else 1.0
     back = (1 - lunge)
     zo = lerp(.9, 1.0, eout(tl / .35)) * (1 + .06 * math.exp(-max(dt, 0) * 8) if dt >= 0 else 1)
     cam = Cam(545 - 30 * clamp(dt / 1.2), 540, 1000 / zo)
@@ -458,19 +462,25 @@ def s_rooftop(tl, u, bt):
 
 
 def s_vwam(tl, u, bt):
+    """VWAM across the roofs: the panel as a big band, and the two fighters streak over it, chasing."""
     img = field(INK)
-    top, bh = band(img, 'ch100_004', (75, 952, 1035, 410), 900, u, z=(1.15, 1.32), drift=(-160, 0),
+    speed_lines(img, int(bt * 15), -12, 34, YEL, .55)
+    top, bh = band(img, 'ch100_004', (75, 952, 1035, 410), 980, u, z=(1.9, 2.15), drift=(-260, 0), h=780,
                    slide=-W * (1 - eout(tl / .25)))
-    speed_lines(img, int(bt * 15), -12, 30, YEL, .5, top + bh + 30, H)
-    speed_lines(img, int(bt * 15) + 3, -12, 30, YEL, .5, 0, top - 30)
+    cam = Cam(600, 600, 3300); cam.oy = 300
+    run = lerp(-1900, 1500, eio(u))
+    for nm, lag, dy in (('opening_shishiba', 0, -40), ('opening_yotsumura', -520, 60)):
+        put_layer(img, nm, cam, dx=run + lag, dy=dy + 40 * math.sin(tl * 9 + lag), rot=-8, vel=(120, -20), ghosts=3,
+                  rim=YEL, rim_w=5)
     return img
 
 
 def s_shwoo(tl, u, bt):
     img = yellow_field()
-    top, bh = band(img, 'ch100_004', (180, 1400, 930, 400), 960, u, z=(1.25, 1.45), drift=(220, 0), edge=INK)
-    if tl < .25: img = img * .4 + PAPER * .6 if tl < 1 / FPS * 2 else img
-    tag(img, 'ROOFTOPS OF KYOTO', MX, top - 120, eout(tl / .5), col=YEL, bg=INK)
+    speed_lines(img, int(bt * 15), 8, 30, INK, .35)
+    top, bh = band(img, 'ch100_004', (180, 1400, 930, 400), 960, u, z=(1.6, 1.85), drift=(260, 0), h=720, edge=INK)
+    if tl < 2 / FPS: img = img * .4 + PAPER * .6
+    tag(img, 'ROOFTOPS OF KYOTO', MX, top - 110, eout(tl / .5), col=YEL, bg=INK)
     return img
 
 
@@ -570,7 +580,7 @@ def s_clash(tl, u, bt):
     nxt = min([h for h in hits if h > bt], default=None)
     # gap: 1 = fully apart, 0 = blades in contact
     if last is None:
-        gap = 1 - ein((bt - 28) / (hits[0] - 28), 3)
+        gap = 1 - ein((bt - 28) / (hits[0] - 28), 5)          # slow wind-up, snap in (speed ramp)
     else:
         out_ = eout(clamp(since_hit(bt, last) / .22))           # kicked apart after the freeze
         if nxt is None:
@@ -578,7 +588,7 @@ def s_clash(tl, u, bt):
         else:
             span = nxt - last; w = clamp((bt - last) / span)
             amp = .75 if span >= 1 else .35
-            gap = amp * out_ * (1 - ein(clamp((w - .45) / .55), 3))  # ...then slammed back together on the beat
+            gap = amp * out_ * (1 - ein(clamp((w - .45) / .55), 4))  # ...then slammed back together on the beat
     hs = 1500 + 650 * gap
     cam = Cam(1005, 400, hs); cam.rot = -8 + 3 * gap
     dt = since_hit(bt, last) if last is not None else -1
@@ -884,6 +894,21 @@ def frame(fi):
     for h, amp in CHROMA.items():
         dt = t - b(h)
         if 0 <= dt < .45: img = chroma(img, amp * math.exp(-dt * 8))
+    # beat-reactive: every 808 kick bumps the zoom, every clap lifts and jolts the frame (same map as the score)
+    z = 1 + sum(.03 * math.exp(-(t - b(k)) * 15) for k in KICKS if 0 <= t - b(k) < .35)
+    if z > 1.002: img = zoom_img(img, z)
+    for c in CLAPS:
+        dt = t - b(c)
+        if 0 <= dt < .25:
+            e = math.exp(-dt * 18)
+            img = shift(img, 7 * e * math.sin(dt * 90), 5 * e, float(INK[0]))
+            img = chroma(img, 4 * e); img = img * (1 - .1 * e) + PAPER * .1 * e
+    # impact frames on the heaviest contacts: two frames of inverted, posterised ink with yellow focus lines
+    for h, st in HITS:
+        if st == 3 and h != 66 and 0 <= fi - round(b(h) * FPS) < 2:
+            L = lum(img); bw = (L > .5)[..., None]
+            img = np.where(bw, INK, PAPER).astype(np.float32)
+            focus_lines(img, W / 2, H * .45, int(h * 10) + fi, 120, 260, YEL, .9)
     img = img * VIG + GRAIN[fi % 3]
     if fi > NF - 12: img *= (NF - fi) / 12
     return np.clip(img, 0, 1)

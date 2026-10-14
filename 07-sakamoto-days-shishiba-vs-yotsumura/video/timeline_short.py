@@ -36,3 +36,30 @@ HITS = [(5, 2), (8, 1), (14, 1), (14.5, 1), (15, 1), (15.5, 2), (24, 2), (29, 3)
         (38, 2), (41, 2), (45, 2), (52, 3), (60, 1), (66, 3)]
 # Hit-stop length per strength (s): the animation freezes while the camera keeps shaking.
 HITSTOP = {1: 0.05, 2: 0.10, 3: 0.17}
+
+# Song form. The drum pattern (and the picture's beat pulses) come from the section kind:
+#   drop  = half-time phonk: 808 kicks on 0, 0.75, 2.5 of each 4-beat bar, clap on 2
+#   drop2 = double-time: kicks on 0, 1.5, 2.5, claps on 1 and 3 (the clash and the final blow)
+#   intro / break / noh / build / silence / soft / end = no kick pattern
+SECTIONS = [(0, 4, 'intro'), (4, 20, 'drop'), (20, 24, 'break'), (24, 28, 'drop'), (28, 36, 'drop2'),
+            (36, 38, 'noh'), (38, 56, 'drop'), (56, 64, 'build'), (64, 66, 'silence'), (66, 74, 'drop2'),
+            (74, 80, 'soft'), (80, 88, 'drop'), (88, NB, 'end')]
+PATTERNS = {'drop': ([0, .75, 2.5], [2]), 'drop2': ([0, 1.5, 2.5], [1, 3])}
+
+
+def section_at(beat):
+    for s0, s1, kind in SECTIONS:
+        if s0 <= beat < s1: return s0, s1, kind
+    return SECTIONS[-1]
+
+
+def drum_hits():
+    """(kicks, claps) as beat lists, generated from SECTIONS / PATTERNS."""
+    kicks, claps = [], []
+    for s0, s1, kind in SECTIONS:
+        if kind not in PATTERNS: continue
+        kp, cp = PATTERNS[kind]
+        for bar in range(s0, s1, 4):
+            kicks += [bar + k for k in kp if bar + k < s1]
+            claps += [bar + c for c in cp if bar + c < s1]
+    return kicks, claps
