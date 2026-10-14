@@ -43,9 +43,11 @@ the job from composing to listening:
 - **Find the words.** Transcribe 2–5 s overlapping windows (Whisper small.en via sherpa-onnx) to locate each
   phrase to within about half a second, then snap the words to the eighth-note grid. Show short fragments,
   not the whole lyric: one accent word per line (rose, larger), timed to its syllable.
-- **Put the story on the song's shape.** Verse: calm monologue. Chorus: the lyric fragments land on matching
-  shots ("when I'm next to you" over her leaning on him). Pre-drop: snow and the umbrella, then hold "I..."
-  through the riser and dip to dark on the last eighth. Drop: white bloom, the confession, then one cut per bar.
+- **Put the story on the song's shape, but never reorder the story.** Verse: calm monologue. Chorus: the lyric
+  fragments land on matching shots ("when I'm next to you" over her leaning on him). Pre-drop: snow, the
+  umbrella, tears, a breath of dark. Drop: the apology in the manga's order, one cut per bar, and the confession
+  **last**, on a bar downbeat with its own white bloom. A first cut put "...like you" on the drop and the
+  apology after it. That reads well musically but tells the scene backwards, so the user rightly sent it back.
 - **Pulse to the real hits.** `analyze_song.py` detects kick and snare onsets in the excerpt. The picture
   zoom-pulses on kicks (stronger in the drop) and flashes softly on drop snares.
 - **Verify sync by measurement.** Cross-correlate the rendered video's audio with the source song: it should

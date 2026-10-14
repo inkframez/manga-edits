@@ -379,9 +379,7 @@ def s_i(tl, u, t, bt):
     """The riser: hold on "I..." while the camera creeps in and the light rises; dip to black on the last 8th."""
     img = full(32, (0, 0, 715, 1378), (480, 300, 600), (470, 290, 470), u, t, 'rose', e=ein)
     snow(img, t * .6, 1.0, (0, 1))
-    img = img * (.75 + .4 * ein(u, 2))
-    if bt > DROP - .5: img *= 1 - eio((bt - (DROP - .5)) / .5) * .9
-    return img
+    return img * (.8 + .3 * ein(u, 2))
 
 
 def s_likeyou(tl, u, t, bt):
@@ -406,7 +404,7 @@ def s_his(tl, u, t, bt):
 
 
 def s_her(tl, u, t, bt):
-    img = full(26, (90, 0, 870, 733), (520, 400, 733), (500, 340, 600), u, t, 'rose')
+    img = full(26, (90, 0, 870, 733), (520, 400, 733), (500, 340, 600), u, t, 'snow')
     snow(img, t, 1.0, (1, 2))
     return img
 
@@ -437,8 +435,18 @@ def s_two(tl, u, t, bt):
 
 
 def s_showface(tl, u, t, bt):
+    """On the drop: "I made you... show me that face." then "...for being oblivious. I'm sorry..."""
     img = backdrop(28, (90, 230, 870, 612), 'snow', u, .45)
-    band(img, 28, (90, 230, 870, 612), 930, u, t, 'snow', z=(1.0, 1.08))
+    band(img, 28, (90, 230, 870, 612), 640, u, t, 'snow', z=(1.0, 1.08))
+    if tl > b(3):
+        band(img, 28, (90, 880, 870, 305), 1270, u, t, 'snow', z=(1.0, 1.05), a=eio((tl - b(3)) / .3))
+    snow(img, t)
+    return img
+
+
+def s_friends(tl, u, t, bt):
+    img = backdrop(30, (90, 0, 870, 590), 'snow', u, .45)
+    band(img, 30, (90, 0, 870, 590), 930, u, t, 'snow', z=(1.0, 1.1), drift=(0, 20))
     snow(img, t)
     return img
 
@@ -499,19 +507,22 @@ SHOTS = [
     (40, 46, s_lean, 'dissolve', .6),
     (46, 50, s_car, 'dissolve', .6),
     (50, 56, s_tears, 'dissolve', .6),
+    # the snow, in the manga's order
     (56, 60, s_dec, 'leak', .8),
-    (60, 64, s_umbrella, 'dissolve', .5),
-    (64, 67, s_cold, 'cut', 0),
-    (67, 72, s_i, 'black', .6),
-    (72, 76, s_likeyou, 'white', 1.0),
-    (76, 84, s_face, 'dissolve', .6),
-    (84, 86, s_his, 'cut', 0),
-    (86, 88, s_her, 'cut', 0),
-    (88, 92, s_hurt, 'cut', 0),
-    (92, 96, s_understood, 'cut', 0),
-    (96, 100, s_two, 'cut', 0),
-    (100, 104, s_showface, 'cut', 0),
-    (104, 108, s_couple, 'dissolve', .5),
+    (60, 63, s_umbrella, 'dissolve', .5),
+    (63, 66, s_her, 'dissolve', .4),
+    (66, 68, s_his, 'cut', 0),
+    (68, 72, s_cold, 'cut', 0),
+    # the drop: the apology first...
+    (72, 78, s_showface, 'white', .8),
+    (78, 82, s_hurt, 'cut', 0),
+    (82, 86, s_friends, 'cut', 0),
+    (86, 90, s_understood, 'cut', 0),
+    (90, 92, s_two, 'cut', 0),
+    # ...and the confession last
+    (92, 96, s_i, 'dissolve', .4),
+    (96, 100, s_likeyou, 'white', 1.0),
+    (100, 108, s_face, 'dissolve', .6),
     (108, NB + 3, s_title, 'leak', 1.5),
 ]
 
@@ -564,6 +575,7 @@ def transition(i, t, img):
 def frame(fi):
     t = fi / FPS; bt = t / BEAT; i = shot_at(bt)
     img = transition(i, t, draw(i, t))
+    if DROP - .5 < bt < DROP: img = img * (1 - .85 * eio((bt - (DROP - .5)) / .5))     # breath before the drop
     p = pulse_at(t)
     if p > 1.001: img = cv2.warpAffine(img, cv2.getRotationMatrix2D((W / 2, H / 2), 0, p), (W, H), borderMode=cv2.BORDER_REFLECT)
     f = flash_at(t)

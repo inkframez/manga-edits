@@ -32,5 +32,5 @@ kaoru hana wa rin to saku, the fragrant flower blooms with dignity, fragrant flo
 ## Notes
 - The NCS credit block above is required by NCS; keep it in the description.
 - First three hashtags show above the title. 25 hashtags in total (YouTube ignores all of them above 60).
-- Thumbnail: `cover.jpg` (her close-up just after the drop).
+- Thumbnail: `cover.jpg` (her close-up after the confession).
 - The manga art belongs to Saka Mikami / Kodansha; a rights holder can still claim a fan edit.

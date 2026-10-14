@@ -25,9 +25,10 @@ confession, cut to **BEAUZ & JVNA – Crazy [NCS Release]** (0:34.3–1:27.0 of 
 |---|---|---|
 | 0:00–0:10.6 | end of verse 1 | the fairy tale, Subaru reading, the café (her monologue typeset) |
 | 0:10.6–0:24.7 | chorus | the nap, "still in love with you" on her realisation, the shape of her love, "when I'm next to you" on the lean, the car, her tears |
-| 0:24.7–0:31.8 | pre-drop | December 29th, the umbrella, "...a cold!", then "I..." held through the riser |
-| 0:31.8 | **the drop** | white bloom; "...like you, Natsusawa-kun." |
-| 0:31.8–0:47.6 | drop | her close-up, then a cut on every bar: his face, her tears, "hurting you", "understood my own feelings", two faces, "show me that face", the couple |
+| 0:24.7–0:31.8 | pre-drop | December 29th, the umbrella, her tears, his "...!!", "...a cold!", a breath of dark |
+| 0:31.8 | **the drop** | white bloom: "I made you... show me that face." / "...for being oblivious. I'm sorry..." |
+| 0:34.4–0:40.6 | drop | in the manga's order, a cut per bar: "I've been hurting you", "I won't be able to stay friends...", "...because I finally understood my own feelings", the two faces |
+| 0:40.6–0:47.6 | drop | the confession comes last: "I..." held, then "...like you, Natsusawa-kun." on a bar downbeat with a white bloom, and her close-up |
 | 0:47.6–0:52.7 | piano break | title and credits |
 
 - **Sync:** the drop is edit beat 72 on a 136 BPM grid anchored at the song's drop (1:06.04). The video's
@@ -57,4 +58,4 @@ python render_ff.py video           # ../fragrant-flower-short.mp4 (about 4 min 
 ```
 
 Verified: 1,581 frames at 1080 × 1920 / 30 fps, 52.7 s; audio −14.0 LUFS integrated.
-`contact-sheet.jpg` shows one frame per second; `cover.jpg` is the close-up after the drop.
+`contact-sheet.jpg` shows one frame per second; `cover.jpg` is her close-up after the confession.
